@@ -8,6 +8,12 @@ app = Flask("Hello World")
 def hello():
     return render_template('hello.html', name="Pascal")
 
+@app.route('/hello/<name>')
+def begruessung(name=False):
+    if name:
+         return "Hallo " + name + "!"
+    else:
+        return "Not Hallo World again…"
 
 @app.route('/sitename')
 def test():

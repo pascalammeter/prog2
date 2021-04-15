@@ -1,17 +1,20 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 
-app = Flask("Hello World")
-
-
-@app.route('/trainingsplan')
-def hello():
-    return render_template('index.html', name="Pascal")
+app = Flask("Trainingsplan-Generator")
 
 
-@app.route('/sitename')
-def testlink():
-    return "success"
+@app.route('/startseite')
+@app.route('/startseite/<vorname>', methods=['GET', 'POST'])
+def abfrage1_vorname():
+    if request.method == 'POST':
+        vorname = request.form['vorname']
+        nachname = request.form['nachname']
+        ausgabe1 = "Hello " + vorname + nachname + "!"
+        return ausgabe1
+    else:
+        return render_template("index.html")
 
 
 if __name__ == "__main__":
