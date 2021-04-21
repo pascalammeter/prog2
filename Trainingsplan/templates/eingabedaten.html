@@ -1,0 +1,36 @@
+{% include "header.html" %}
+
+<body>
+
+<!--Titel der Seite-->
+<h1>Trainingsplan Erstellen</h1>
+
+<!--Untertitel-->
+<h2>Anhand deiner Eingaben wird der Trainingsplan erstellt.</h2>
+
+<div>
+    <form class="css" method="POST">
+        <div>
+            <label for="eingabedaten" class="css">Daten hinzufügen:</label>
+                <input type="text" name="vorname" id="eingabedaten" placeholder="Vorname" class="css" required>
+                <input type="text" name="nachname" id="eingabedaten" placeholder="Nachname" class="css" required>
+                <input type="date" name="geschlecht" id="eingabedaten" class="css" required>
+                <select class="css" id="eingabedaten" name="geschlecht">
+                    <option value="maennlich">Männlich</option>
+                    <option value="weiblich" class="weiblich">Weiblich</option>
+                </select>
+                <input type="number" name="groesse" id="eingabedaten" min="100" max="220" step="1" value="175" class="css" required>
+                <input type="number" name="gewicht" id="eingabedaten" min="30" max="225" step="0.5" value="75" class="css" required>
+                <input type="number" name="alter" id="eingabedaten" min="16" max="99" step="1" value="24" class="css" required>
+                <label>BMI:
+                    <output id="bmi"></output>
+                </label>
+                <br>
+                <button type="button" id="berechnen">BMI berechnen</button>
+                <!-- Import our BMI JavaScript -->
+                <script src="{{ url_for('static', filename='bmi.js') }}"></script>
+                <input type="submit" value="Add" class="css">
+        </div>
+    </form>
+</div>
+</body>

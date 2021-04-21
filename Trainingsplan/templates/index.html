@@ -1,26 +1,21 @@
-<!doctype HTML>
-<html lang="de">
-    <head>
-      <title>Startseite von Pascal Ammeter</title>
-      <meta charset="UTF-8">
-      <meta name="description"      content="Trainingsplan-Generator inkl. Logbuch" />
-      <meta name="keywords"         content="Training, Plan, Kraftsport, Generator, Logbuch, Trainingsplan, Erstellung" />
-      <meta name="author"           content="Pascal Ammeter" />
-      <meta name="creationdate"     content="2021-04-20" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
+<!--Mit dem include wird hier mein header hinzugefügt,
+so muss ich immer nur einmal Änderungen vornehmen und
+nicht in allen htmls-->
 
-        <!-- <a href="{{ url_for('abfrage1_vorname') }}">Abfrage1</a> Link auf die Funktion abfrage1_vorname-->
+{% include "header.html" %}
+<body>
 
-    <form method="POST">
-        <input type="text" vorname="vorname" placeholder="Vorname">
-        <input type="text" nachname="nachname" placeholder="Nachname">
-        <button type="submit">Senden</button>
-    </form>
-    <h1>Hallo {{ ausgabe1 }}!</h1>
-    </body>
-</html>
+<!--Der Titel der Seite-->
+<h1>Trainingsplan-Generator</h1>
+
+<!--Untertitel-->
+<h2>Was möchtest du?</h2>
+
+<!--Auswahl, ob man einen Event also sprich Termin oder ein To Do hinzufügen möchte-->
+    <div class="navbar">
+    	<!--Mit url_for wird auf die entsprechende Route / Definition im main.py verlinkt-->
+        <a href="{{ url_for('trainingsplan') }}">Trainingsplan erstellen</a>
+        	<br><br><br><br>
+    </div>
+
+</body>
