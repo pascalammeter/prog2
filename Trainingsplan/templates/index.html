@@ -1,6 +1,5 @@
 <!--Mit dem include wird hier mein header hinzugefügt,
-so muss ich immer nur einmal Änderungen vornehmen und
-nicht in allen htmls-->
+so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
 
 {% include "header.html" %}
 <body>
@@ -10,12 +9,12 @@ nicht in allen htmls-->
 
 <!--Untertitel-->
 <h2>Was möchtest du?</h2>
-
-<!--Auswahl, ob man einen Event also sprich Termin oder ein To Do hinzufügen möchte-->
     <div class="navbar">
     	<!--Mit url_for wird auf die entsprechende Route / Definition im main.py verlinkt-->
         <a href="{{ url_for('trainingsplan') }}">Trainingsplan erstellen</a>
         	<br><br><br><br>
+        <a href="{{ url_for('logbuch') }}">Logbuch aufrufen</a>
+            <br><br><br><br>
     </div>
 
 </body>
