@@ -2,19 +2,25 @@
 so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
 
 {% include "header.html" %}
-<body>
+
+{% include "navbar.html" %}
+<div class="container">
 
 <!--Der Titel der Seite-->
-<h1>Trainingsplan-Generator</h1>
-
+    <h1>Trainingsplan-Generator</h1>
+    {% if name %}
 <!--Untertitel-->
-<h2>Was möchtest du?</h2>
+    <h2>Hallo {{ name }}! was möchtest du?</h2>
+    {% else %}
+    <h2>Hallo Unbekannter! was möchtest du?</h2>
+    {% endif %}
+
     <div class="navbar">
     	<!--Mit url_for wird auf die entsprechende Route / Definition im main.py verlinkt-->
         <a href="{{ url_for('trainingsplan') }}">Trainingsplan erstellen</a>
         	<br><br><br><br>
-        <a href="{{ url_for('logbuch') }}">Logbuch aufrufen</a>
-            <br><br><br><br>
-    </div>
 
-</body>
+    </div>
+</div>
+
+{% include "footer.html" %}

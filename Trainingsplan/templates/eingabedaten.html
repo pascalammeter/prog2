@@ -10,27 +10,48 @@
 
 <div>
     <form class="css" method="POST">
-        <div>
-            <label for="eingabedaten" class="css">Daten hinzufügen:</label>
-                <input type="text" name="vorname" id="eingabedaten" placeholder="Vorname" class="css" required>
-                <input type="text" name="nachname" id="eingabedaten" placeholder="Nachname" class="css" required>
-                <input type="date" name="geschlecht" id="eingabedaten" class="css" required>
-                <select class="css" id="eingabedaten" name="geschlecht">
-                    <option value="maennlich">Männlich</option>
-                    <option value="weiblich" class="weiblich">Weiblich</option>
-                </select>
-                <input type="number" name="groesse" id="eingabedaten" min="100" max="220" step="1" value="175" class="css" required>
-                <input type="number" name="gewicht" id="eingabedaten" min="30" max="225" step="0.5" value="75" class="css" required>
-                <input type="number" name="alter" id="eingabedaten" min="16" max="99" step="1" value="24" class="css" required>
-                <label>BMI:
-                    <output id="bmi"></output>
-                </label>
-                <br>
-                <button type="button" id="berechnen">BMI berechnen</button>
-                <!-- Import our BMI JavaScript -->
-                <script src="{{ url_for('static', filename='bmi.js') }}"></script>
-                <input type="submit" value="Add" class="css">
-        </div>
+        <label for="eingabedaten_vorname" class="css">Daten hinzufügen:</label>
+        <input type="text" name="vorname" id="eingabedaten_vorname" placeholder="Vorname" class="css" required>
+        <input type="text" name="nachname" id="eingabedaten_nachname" placeholder="Nachname" class="css" required>
+        <select class="css" id="eingabedaten_geschlecht" name="geschlecht">
+            <option value="maennlich" class="maennlich">Männlich</option>
+            <option value="weiblich" class="weiblich">Weiblich</option>
+        </select>
+        <input type="number" name="groesse" id="eingabedaten_groesse" min="100" max="220" step="1" value="175" class="css" required>
+        <input type="number" name="alter" id="eingabedaten_alter" min="16" max="99" step="1" value="24" class="css" required>
+
+        <label for="eingabedaten_erfahrung" class="css">Wie erfahren bist du im Kraftsport?</label>
+        <select class="css" id="eingabedaten_erfahrung" name="erfahrung">
+            <option value="beginner" class="beginner">Beginner: Du hast keine grosse Erfahrung, bzw. hast erst gerade mit Kraftsport gestartet.</option>
+            <option value="intermediate" class="intermediate">Intermediate: Du hast bereits die gängisten Kraftübungen praktiziert.</option>
+            <option value="advanced" class="advanced">Advanced: Du betreibst seit mehreren Jahren Kraftsport.</option>
+        </select>
+
+        <label for="eingabedaten_ziel" class="css">Was ist dein Ziel?</label>
+        <select class="css" id="eingabedaten_ziel" name="ziel">
+            <option value="muskelaufbau" class="muskelaufbau">Muskelaufbau: Gewicht darf steigen.</option>
+            <option value="fettabbau" class="fettabbau">Fettabbau: Gewicht darf sinken.</option>
+            <option value="mix" class="mix">Mix: Gewicht darf bleiben.</option>
+        </select>
+
+        <label for="eingabedaten_frequenz" class="css">Wie oft in der Woche willst du trainieren?</label>
+        <select class="css" id="eingabedaten_frequenz" name="frequenz">
+            <option value="wenig" class="wenig">1 bis 2 Mal.</option>
+            <option value="mittel" class="mittel">3 bis 4 Mal.</option>
+            <option value="viel" class="viel">5 bis 6 Mal.</option>
+        </select>
+
+        <label for="eingabedaten_zeitplan" class="css">Wie lange möchtest du deinen Trainingsplan durchziehen?</label>
+        <select class="css" id="eingabedaten_zeitplan" name="zeitplan">
+            <option value="vierwochen" class="vierwochen">4 Wochen</option>
+            <option value="zwoelfwochen" class="zwoelfwochen">12 Wochen</option>
+            <option value="sechsmonate" class="sechsmonate">6 Monate</option>
+            <option value="einjahr" class="einjahr">1 Jahr</option>
+            <option value="unbestimmt" class="unbestimmt">Unbestimmt</option>
+        </select>
+
+        <input type="submit" value="Absenden" class="css">
+
     </form>
 </div>
 </body>
