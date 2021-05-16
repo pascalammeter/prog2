@@ -1,0 +1,30 @@
+{% include "header.html" %}
+{% include "navbar.html" %}
+
+
+<main role="main">
+    {% if uebungen %} <!--(1) Falls Daten vorhanden sind, wird folgendes ausgegeben:-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="list-group">
+                    {% for uebungen, data in exercises.items() %}
+                    <!-- Jetzt iterieren wir durch exercises (ein Dict) und kreieren für jeden Eintrag folgenden Code -->
+                    <a href="{{ url_for('exercises') }}" class="list-group-item list-group-item-action">{{ data["muskel"] }}, {{ data["training"] }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+    {% else %}
+        <!-- Falls es keine Übungen hat -->
+        <div class="container">
+            <div class="row">
+                <p>No exercises to list. Try <a href="{{ url_for('trainingsplan') }}">Trainingsplan</a> first.<p>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    {% endif %}
+</main>
+
+
+{% include "footer.html" %}

@@ -1,26 +1,29 @@
 <!--Mit dem include wird hier mein header hinzugefügt,
 so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
 
-{% include "header.html" %}
-
+{% include "header.html" %} <!--Mit dem include wird hier mein header hinzugefügt,
+so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
 {% include "navbar.html" %}
-<div class="container">
-
-<!--Der Titel der Seite-->
-    <h1>Trainingsplan-Generator</h1>
-    {% if name %}
-<!--Untertitel-->
-    <h2>Hallo {{ name }}! was möchtest du?</h2>
-    {% else %}
-    <h2>Hallo Unbekannter! was möchtest du?</h2>
-    {% endif %}
-
-    <div class="navbar">
-    	<!--Mit url_for wird auf die entsprechende Route / Definition im main.py verlinkt-->
-        <a href="{{ url_for('trainingsplan') }}">Trainingsplan erstellen</a>
-        	<br><br><br><br>
-
+<div class="container my-5"> <!-- Quelle: https://getbootstrap.com/docs/5.0/examples/heroes/ -->
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">Trainingsplan-Generator</h1><br>
+        <p class="lead">In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios mehrere Monate
+            geschlossen. Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym einzurichten.
+            Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben, doch mit der Zeit nimmt
+            die Motivation ab und man verliert das Ziel aus den Augen. Mit Aussicht auf baldige Lockerungen und dem
+            voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den User abgestimmten Trainingsplan
+            Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten Fitnessroutine nachzukommen.</p><br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Trainingsplan erstellen</button></a>
+          <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button></a>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 position-relative overflow-hidden shadow-lg">
+        <div class="position-lg-absolute top-0 left-0 overflow-hidden">
+          <img class="d-block rounded-lg-3" src="pictures/example-trainingsplan.png" alt="Beispiel Trainingsplan" width="720">
+        </div>
+      </div>
     </div>
 </div>
-
 {% include "footer.html" %}

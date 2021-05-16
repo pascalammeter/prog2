@@ -1,57 +1,79 @@
 {% include "header.html" %}
-
-<body>
-
-<!--Titel der Seite-->
-<h1>Trainingsplan Erstellen</h1>
-
-<!--Untertitel-->
-<h2>Anhand deiner Eingaben wird der Trainingsplan erstellt.</h2>
-
+{% include "navbar.html" %}
 <div>
-    <form class="css" method="POST">
-        <label for="eingabedaten_vorname" class="css">Daten hinzufügen:</label>
-        <input type="text" name="vorname" id="eingabedaten_vorname" placeholder="Vorname" class="css" required>
-        <input type="text" name="nachname" id="eingabedaten_nachname" placeholder="Nachname" class="css" required>
-        <select class="css" id="eingabedaten_geschlecht" name="geschlecht">
-            <option value="maennlich" class="maennlich">Männlich</option>
-            <option value="weiblich" class="weiblich">Weiblich</option>
-        </select>
-        <input type="number" name="groesse" id="eingabedaten_groesse" min="100" max="220" step="1" value="175" class="css" required>
-        <input type="number" name="alter" id="eingabedaten_alter" min="16" max="99" step="1" value="24" class="css" required>
-
-        <label for="eingabedaten_erfahrung" class="css">Wie erfahren bist du im Kraftsport?</label>
-        <select class="css" id="eingabedaten_erfahrung" name="erfahrung">
-            <option value="beginner" class="beginner">Beginner: Du hast keine grosse Erfahrung, bzw. hast erst gerade mit Kraftsport gestartet.</option>
-            <option value="intermediate" class="intermediate">Intermediate: Du hast bereits die gängisten Kraftübungen praktiziert.</option>
-            <option value="advanced" class="advanced">Advanced: Du betreibst seit mehreren Jahren Kraftsport.</option>
-        </select>
-
-        <label for="eingabedaten_ziel" class="css">Was ist dein Ziel?</label>
-        <select class="css" id="eingabedaten_ziel" name="ziel">
-            <option value="muskelaufbau" class="muskelaufbau">Muskelaufbau: Gewicht darf steigen.</option>
-            <option value="fettabbau" class="fettabbau">Fettabbau: Gewicht darf sinken.</option>
-            <option value="mix" class="mix">Mix: Gewicht darf bleiben.</option>
-        </select>
-
-        <label for="eingabedaten_frequenz" class="css">Wie oft in der Woche willst du trainieren?</label>
-        <select class="css" id="eingabedaten_frequenz" name="frequenz">
-            <option value="wenig" class="wenig">1 bis 2 Mal.</option>
-            <option value="mittel" class="mittel">3 bis 4 Mal.</option>
-            <option value="viel" class="viel">5 bis 6 Mal.</option>
-        </select>
-
-        <label for="eingabedaten_zeitplan" class="css">Wie lange möchtest du deinen Trainingsplan durchziehen?</label>
-        <select class="css" id="eingabedaten_zeitplan" name="zeitplan">
-            <option value="vierwochen" class="vierwochen">4 Wochen</option>
-            <option value="zwoelfwochen" class="zwoelfwochen">12 Wochen</option>
-            <option value="sechsmonate" class="sechsmonate">6 Monate</option>
-            <option value="einjahr" class="einjahr">1 Jahr</option>
-            <option value="unbestimmt" class="unbestimmt">Unbestimmt</option>
-        </select>
-
-        <input type="submit" value="Absenden" class="css">
-
-    </form>
+    <form method="POST">
+        <div class="container py-4">
+              <div class="container-fluid py-4">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                  <h2>Trainingsplan Erstellen</h2>
+                    <p>Anhand deiner Eingaben wird der Trainingsplan erstellt.</p>
+                    <div class="mb-3">
+                        <label for="formGroupInput" class="form-label">Vorname</label>
+                        <input type="text" class="form-control" name='vorname' id="formGroupInput" placeholder="Max">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput2" class="form-label">Nachname</label>
+                        <input type="text" class="form-control" name="nachname" id="formGroupInput2" placeholder="Mustermann">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput3" class="form-label">Geschlecht</label>
+                        <select class="form-select" name="geschlecht" id="formGroupInput3" aria-label="Default select example">
+                            <option selected>Auswahl</option>
+                            <option value="weiblich">Weiblich</option>
+                            <option value="maennlich">Männlich</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput4" class="form-label">Grösse</label>
+                        <input type="text" class="form-control" name="groesse" id="formGroupInput4" placeholder="175">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput5" class="form-label">Alter</label>
+                        <input type="text" class="form-control" name="alter" id="formGroupInput5" placeholder="24">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput6" class="form-label">Wie erfahren bist du im Kraftsport?</label>
+                        <select class="form-select" name="erfahrung" id="formGroupInput6" aria-label="Default select example">
+                            <option selected>Auswahl</option>
+                            <option value="beginner">Beginner: Du hast keine grosse Erfahrung, bzw. hast erst gerade mit Kraftsport gestartet.</option>
+                            <option value="intermediate">Intermediate: Du hast bereits die gängisten Kraftübungen praktiziert.</option>
+                            <option value="advanced">Advanced: Du betreibst seit mehreren Jahren Kraftsport.</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput7" class="form-label">Was ist dein Ziel?</label>
+                        <select class="form-select" name="ziel" id="formGroupInput7" aria-label="Default select example">
+                            <option selected>Auswahl</option>
+                            <option value="muskelaufbau">Muskelaufbau: Gewicht darf steigen.</option>
+                            <option value="fettabbau">Fettabbau: Gewicht darf sinken.</option>
+                            <option value="mix">Gewicht darf bleiben.</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput8" class="form-label">Wie oft in der Woche willst du trainieren?</label>
+                        <select class="form-select" name="frequenz" id="formGroupInput8" aria-label="Default select example">
+                            <option selected>Auswahl</option>
+                            <option value="wenig">1 bis 2 Mal.</option>
+                            <option value="mittel">3 bis 4 Mal.</option>
+                            <option value="viel">5 bis 6 Mal.</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupInput9" class="form-label">Wie lange möchtest du deinen Trainingsplan durchziehen?</label>
+                        <select class="form-select" name="zeitplan" id="formGroupInput9" aria-label="Default select example">
+                            <option selected>Auswahl</option>
+                            <option value="vierwochen">4 Wochen</option>
+                            <option value="zwoelfwochen">12 Wochen</option>
+                            <option value="sechsmonate">6 Monate</option>
+                            <option value="einjahr">1 Jahr</option>
+                            <option value="unbestimmt">Unbestimmt</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Absenden" class="btn btn-outline-secondary btn-lg px-4">
+                    <!-- <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button></a> -->
+              </div>
+            </div>
+        </div>
+</form>
 </div>
-</body>
+{% include "footer.html" %}

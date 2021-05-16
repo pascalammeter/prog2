@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
-
 from libs.eingabedaten_speichern import speichern
-
+from libs.eingabedaten_speichern import excercises_laden
 
 app = Flask("Trainingsplan-Generator")
 
@@ -13,7 +12,7 @@ def startseite():
     # Zeigt die Startseite an, wenn die url/route '/' ist.
     # Auf der Startseite kann man wählen, ob ein Trainingsplan erstellt werden soll.
     # Returns:
-    # template: Das HTML 'index.html' wird gerendert mit der Auswahlmöglichkeit
+    # template: Das HTML 'index2.html' wird gerendert mit der Auswahlmöglichkeit
     return render_template('index.html', name=name)
 
 
@@ -33,44 +32,44 @@ def trainingsplan():
         frequenz = request.form['frequenz']
         zeitplan = request.form['zeitplan']
         entry = {f"{vorname}_{nachname}":[geschlecht, groesse, alter, erfahrung, ziel, frequenz, zeitplan]}
-        print(entry)
-        speichern(entry)
-        # Daten in JSON File speichern, Funktion eingabedaten in eingabedaten_speichern.py
-        # returned_data = eingabedaten_speichern.eingabedaten(vorname, nachname, geschlecht, groesse, gewicht, alter)
-        # Weiterleitug auf Übungen, primar key mitnehmen?
-        # return redirect(url_for('uebungen'))
+        # entry = {User: {f"{vorname}_{nachname}"}: {geschlecht, groesse, alter, erfahrung, ziel, frequenz, zeitplan}}
+        speichern(entry) # Daten in JSON File speichern, Funktion eingabedaten in eingabedaten_speichern.py
+
+        # erhaltene_daten = eingabedaten_speichern.funktion(erfahrung, ziel, frequenz, zeitplan)
+
+        # Weiterleitug auf Übungen, primary key mitnehmen?
+        return redirect(url_for('excercises_auflisten'))
         # Wenn nicht ausgefüllt, Startseite Laden
+
     return render_template("eingabedaten.html")
 
-# @app.route("/speichern/<aktivitaet>")
-# def speichern(aktivitaet):
-#     zeitpunkt, aktivitaet = eingabedaten_speichern.aktivitaet_speichern(aktivitaet)
-#
-#     return "Gespeichert: " + aktivitaet + " um " + str(zeitpunkt)
-#
-#
-# @app.route("/liste")
-# def auflisten():
-#     aktivitaeten = eingabedaten_speichern.aktivitaeten_laden()
-#
-#     aktivitaeten_liste = ""
-#     for key, value in aktivitaeten.items():
-#         zeile = str(key) + ": " + value + "<br>"
-#         aktivitaeten_liste += zeile
-#
-#     return aktivitaeten_liste
+
+@app.route("/exercises")
+def excercises_auflisten():
+    uebungen = excercises_laden()
+    # daten = data_laden()
+
+    for id, data in uebungen["pull"].items():
+        if data["schwierigkeitgrad"] == "intermediate":
+            print(data["name"])
+
+    # return uebungen
+    return render_template("uebungengeneriert.html")
+
+    # for id, data in daten["Pascal_Ammeter"].items():
+    #     if data[] == "viel":
+    #         print(data[""])
+    #
+    # return daten
+
 
 @app.route("/uebungen")
 def uebungen():
-    """
-    Summary:
-        Hier werden alle Übungen angezeigt.
-        Die url/route ist '/uebungen'.
+    # Summary:
+    # Hier werden alle Übungen angezeigt.
+    # Die url/route ist '/uebungen'.
+    # Template: Das HTML 'uebungengeneriert.html' wird gerendert.
 
-    Returns:
-        template: Das HTML 'uebungengeneriert.html' wird gerendert.
-    """
-    # todo_daten = data.load_json()
     return render_template("uebungengeneriert.html") #html und daten noch undefiniert
 
 

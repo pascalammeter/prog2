@@ -1,211 +1,559 @@
 {
-	"exercises": [{
-          "_comment0": "PULL 0 bis 23",
-          "_comment1": "PUSH 24 bis 47",
-          "_comment2": "LEGS 48 bis 67",
-          "id": 0,
-          "name": "Kreuzheben"
-        }, {
-          "id": 1,
-          "name": "High Rows Maschine"
-        }, {
-          "id": 2,
-          "name": "Kabelrudern sitzend tief eng"
-        }, {
-          "id": 3,
-          "name": "Lat ziehen breit"
-        }, {
-          "id": 4,
-          "name": "Reverse Butterflys"
-        }, {
-          "id": 5,
-          "name": "Scott Curls"
-        }, {
-          "id": 6,
-          "name": "Hammer Curls"
-        }, {
-          "id": 7,
-          "name": "KH Shrugs"
-        }, {
-          "id": 8,
-          "name": "LH Rudern"
-        }, {
-          "id": 9,
-          "name": "Kabelrudern sitzend hoch breit"
-        }, {
-          "id": 10,
-          "name": "Überzüge"
-        }, {
-          "id": 11,
-          "name": "Lat ziehen Untergriff mittel"
-        }, {
-          "id": 12,
-          "name": "KH vorgebeugtes Seitheben"
-        }, {
-          "id": 13,
-          "name": "Schrägbank sitzend Curls"
-        }, {
-          "id": 14,
-          "name": "Reverse Curls"
-        }, {
-          "id": 15,
-          "name": "LH Shrugs"
-        }, {
-          "id": 16,
-          "name": "Lat ziehen eng"
-        }, {
-          "id": 17,
-          "name": "Low Rows Maschine"
-        }, {
-          "id": 18,
-          "name": "Facepulls"
-        }, {
-          "id": 19,
-          "name": "T-Bar Rudern"
-        }, {
-          "id": 20,
-          "name": "Reverse Cableflys"
-        }, {
-          "id": 21,
-          "name": "Kabelzug Curls"
-        }, {
-          "id": 22,
-          "name": "LH Curls"
-        }, {
-          "id": 23,
-          "name": "Konzentrationscurls"
-        }, {
-          "id": 24,
-          "name": "Schrägbankdrücken 35° MP"
-        }, {
-          "id": 25,
-          "name": "KH Flachbankdrücken"
-        }, {
-          "id": 26,
-          "name": "Butterfly Maschine"
-        }, {
-          "id": 27,
-          "name": "Brustpresse isolateral schräg"
-        }, {
-          "id": 28,
-          "name": "Schulterpress Maschine"
-        }, {
-          "id": 29,
-          "name": "KH Seitheben"
-        }, {
-          "id": 30,
-          "name": "Überkopf Trizepsstrecken"
-        }, {
-          "id": 31,
-          "name": "Cable Pushdowns"
-        }, {
-          "id": 32,
-          "name": "Schrägbankdrücken 75° MP"
-        }, {
-          "id": 33,
-          "name": "Brustpresse isolateral flach"
-        }, {
-          "id": 34,
-          "name": "Negativbankdrücken"
-        }, {
-          "id": 35,
-          "name": "KH Schrägbank Flys"
-        }, {
-          "id": 36,
-          "name": "Kabel Seitheben"
-        }, {
-          "id": 37,
-          "name": "Aufrechtes Rudern unilateral"
-        }, {
-          "id": 38,
-          "name": "Sitzend SZ Überkopfdrücken"
-        }, {
-          "id": 39,
-          "name": "Cable Pushdowns unilateral"
-        }, {
-          "id": 40,
-          "name": "Bankdrücken"
-        }, {
-          "id": 41,
-          "name": "KH Schrägbankdrücken 35°"
-        }, {
-          "id": 42,
-          "name": "Dips Brustfokus"
-        }, {
-          "id": 43,
-          "name": "Cablecross vorgebeugt"
-        }, {
-          "id": 44,
-          "name": "KH Schulterdrücken"
-        }, {
-          "id": 45,
-          "name": "Seitheben Maschine"
-        }, {
-          "id": 46,
-          "name": "Reverse Cable Pushdowns"
-        }, {
-          "id": 47,
-          "name": "Überkopf Trizepsstrecken unilateral"
-        }, {
-          "id": 48,
-          "name": "Kniebeuge"
-        }, {
-          "id": 49,
-          "name": "Horizontale Beinpresse"
-        }, {
-          "id": 50,
-          "name": "Beinstrecker"
-        }, {
-          "id": 51,
-          "name": "Beincurl liegend"
-        }, {
-          "id": 52,
-          "name": "Beincurl stehend"
-        }, {
-          "id": 53,
-          "name": "Glute Ham Raises"
-        }, {
-          "id": 54,
-          "name": "Hip Thrusts"
-        }, {
-          "id": 55,
-          "name": "Kickbacks"
-        }, {
-          "id": 56,
-          "name": "Hyperextensions"
-        }, {
-          "id": 57,
-          "name": "Waden sitzend"
-        }, {
-          "id": 58,
-          "name": "Waden stehend"
-        }, {
-          "id": 59,
-          "name": "Wadendrücken Beinpresse"
-        }, {
-          "id": 60,
-          "name": "Romanian Deadlifts"
-        }, {
-          "id": 61,
-          "name": "Hackenschmidt Maschine"
-        }, {
-          "id": 62,
-          "name": "Beinpresse 75°"
-        }, {
-          "id": 63,
-          "name": "Beincurl sitzend"
-        }, {
-          "id": 64,
-          "name": "Adduktoren"
-        }, {
-          "id": 65,
-          "name": "Abduktoren"
-        }, {
-          "id": 66,
-          "name": "Beinpresse 45°"
-        }, {
-          "id": 67,
-          "name": "Kniebeuge Maschine"
-        }
-    ]
+  "pull": {
+    "0": {
+      "name": "Kreuzheben",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "advanced",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "1": {
+      "name": "High Rows Maschine",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "intermediate",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "2": {
+      "name": "Kabelrudern sitzend tief eng",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "3": {
+      "name": "Lat ziehen breit",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "4": {
+      "name": "Reverse Butterflys",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "5": {
+      "name": "Scott Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "6": {
+      "name": "Hammer Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "7": {
+      "name": "KH Shrugs",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "8": {
+      "name": "LH Rudern",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "9": {
+      "name": "Kabelrudern sitzend hoch breit",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "10": {
+      "name": "Überzüge",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "11": {
+      "name": "Lat ziehen Untergriff mittel",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "12": {
+      "name": "KH vorgebeugtes Seitheben",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "13": {
+      "name": "Schrägbank sitzend Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "14": {
+      "name": "Reverse Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "15": {
+      "name": "LH Shrugs",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "16": {
+      "name": "Lat ziehen eng",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "17": {
+      "name": "Low Rows Maschine",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "18": {
+      "name": "Facepulls",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "advanced",
+      "training": "C",
+      "split-a": "3er-Split"
+    },
+    "19": {
+      "name": "T-Bar Rudern",
+      "muskel": "Rücken",
+      "schwierigkeitgrad": "advanced",
+      "training": "C",
+      "split-a": "3er-Split"
+    },
+    "20": {
+      "name": "Reverse Cableflys",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split"
+    },
+    "21": {
+      "name": "Kabelzug Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "22": {
+      "name": "LH Curls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "23": {
+      "name": "Konzentrationscurls",
+      "muskel": "Bizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    }
+  },
+  "push": {
+    "24": {
+      "name": "Schrägbankdrücken 35° MP",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "intermediate",
+      "training": "A",
+      "split": "beispiel",
+      "split-a": "3er-Split",
+      "split-c": "GK"
+    },
+    "25": {
+      "name": "KH Flachbankdrücken",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "advanced",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "26": {
+      "name": "Butterfly Maschine",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "27": {
+      "name": "Brustpresse isolateral schräg",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "28": {
+      "name": "Schulterpress Maschine",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "29": {
+      "name": "KH Seitheben",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "intermediate",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "30": {
+      "name": "Überkopf Trizepsstrecken",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split"
+    },
+    "31": {
+      "name": "Cable Pushdowns",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "32": {
+      "name": "Schrägbankdrücken 75° MP",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "33": {
+      "name": "Brustpresse isolateral flach",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "34": {
+      "name": "Negativbankdrücken",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "advanced",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "35": {
+      "name": "KH Schrägbank Flys",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "advanced",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "36": {
+      "name": "Kabel Seitheben",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "37": {
+      "name": "Aufrechtes Rudern",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "38": {
+      "name": "Sitzend SZ Überkopfdrücken",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "39": {
+      "name": "Cable Pushdowns unilateral",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "40": {
+      "name": "Bankdrücken",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "41": {
+      "name": "KH Schrägbankdrücken 35°",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "advanced",
+      "training": "C",
+      "split-a": "3er-Split"
+    },
+    "42": {
+      "name": "Dips Brustfokus",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "43": {
+      "name": "Cablecross vorgebeugt",
+      "muskel": "Brust",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "44": {
+      "name": "KH Schulterdrücken",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "advanced",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "45": {
+      "name": "Seitheben Maschine",
+      "muskel": "Schulter",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "46": {
+      "name": "Reverse Cable Pushdowns",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "47": {
+      "name": "Überkopf Trizepsstrecken unilateral",
+      "muskel": "Trizeps",
+      "schwierigkeitgrad": "advanced",
+      "training": "C",
+      "split-a": "3er-Split"
+    }
+  },
+  "legs": {
+    "48": {
+      "name": "Kniebeuge",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "advanced",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "49": {
+      "name": "Horizontale Beinpresse",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "50": {
+      "name": "Beinstrecker",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "51": {
+      "name": "Beincurl liegend",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "52": {
+      "name": "Beincurl stehend",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split"
+    },
+    "53": {
+      "name": "Glute Ham Raises",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "intermediate",
+      "training": "A",
+      "split-a": "3er-Split"
+    },
+    "54": {
+      "name": "Hip Thrusts",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "55": {
+      "name": "Kickbacks",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "56": {
+      "name": "Hyperextensions",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "57": {
+      "name": "Waden sitzend",
+      "muskel": "Waden",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "58": {
+      "name": "Waden stehend",
+      "muskel": "Waden",
+      "schwierigkeitgrad": "beginner",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "59": {
+      "name": "Wadendrücken Beinpresse",
+      "muskel": "Waden",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "60": {
+      "name": "Romanian Deadlifts",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "advanced",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "61": {
+      "name": "Hackenschmidt Maschine",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "B",
+      "split-a": "3er-Split"
+    },
+    "62": {
+      "name": "Beinpresse 75°",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "63": {
+      "name": "Beincurl sitzend",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK"
+    },
+    "64": {
+      "name": "Adduktoren",
+      "muskel": "Hamstrings",
+      "schwierigkeitgrad": "beginner",
+      "training": "A",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "65": {
+      "name": "Abduktoren",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "beginner",
+      "training": "B",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "66": {
+      "name": "Beinpresse 45°",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split",
+      "split-b": "OK/UK",
+      "split-c": "GK"
+    },
+    "67": {
+      "name": "Kniebeuge Maschine",
+      "muskel": "Quadrizeps",
+      "schwierigkeitgrad": "intermediate",
+      "training": "C",
+      "split-a": "3er-Split"
+    }
+  }
 }
+
