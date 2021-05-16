@@ -54,7 +54,7 @@ def excercises_auflisten():
             print(data["name"])
 
     # return uebungen
-    return render_template("uebungengeneriert.html")
+    return render_template("uebungengeneriert.html", uebungen=uebungen, exercices="data/exercises.json")
 
     # for id, data in daten["Pascal_Ammeter"].items():
     #     if data[] == "viel":

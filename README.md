@@ -41,7 +41,7 @@ Der User möchte nach dem Corona-Lockdown wieder in einem Fitnessstudio trainine
 
 Beschreibung einer Anleitung für die Nutzung des Trainingsplans
 
-![Flussdiagramm](./Trainingsplan/pictures/flussdiagramm_01.png)
+![Flussdiagramm](./Trainingsplan/static/pictures/flussdiagramm_01.png)
 
 
 <!-- Workflow-->
