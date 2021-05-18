@@ -1,15 +1,20 @@
 {% include "header.html" %}
 {% include "navbar.html" %}
 
+<p>Hallo {{ vorname, nachname }}</p>
 <main role="main">
-    {% if uebungen %} <!--(1) Falls Daten vorhanden sind, wird folgendes ausgegeben:-->
+    {% if exercises_list %} <!--(1) Falls Daten vorhanden sind, wird folgendes ausgegeben:-->
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="list-group">
-                    {% for uebungen, data in exercises.items() %}
-                    <!-- Jetzt iterieren wir durch exercises (ein Dict) und kreieren für jeden Eintrag folgenden Code -->
-                    <a href="{{ url_for('exercises') }}" class="list-group-item list-group-item-action">{{ data["muskel"] }}, {{ data["training"] }}</a>
+                    {% for data in exercises_list %}
+                    <ul>
+                        <label>
+                            <input type="checkbox" name="{{ value }}">
+                            {{ data }}
+                        </label>
+                    </ul>
                     {% endfor %}
                 </div>
             </div>

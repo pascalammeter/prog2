@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
-from libs.eingabedaten_speichern import speichern
-from libs.eingabedaten_speichern import excercises_laden
+from libs.eingabedaten_speichern import speichern, json_laden
 
 app = Flask("Trainingsplan-Generator")
 
@@ -31,36 +30,71 @@ def trainingsplan():
         ziel = request.form['ziel']
         frequenz = request.form['frequenz']
         zeitplan = request.form['zeitplan']
-        entry = {f"{vorname}_{nachname}":[geschlecht, groesse, alter, erfahrung, ziel, frequenz, zeitplan]}
+        entry = {f"{vorname}_{nachname}": [geschlecht, groesse, alter, erfahrung, ziel, frequenz, zeitplan]}
         # entry = {User: {f"{vorname}_{nachname}"}: {geschlecht, groesse, alter, erfahrung, ziel, frequenz, zeitplan}}
-        speichern(entry) # Daten in JSON File speichern, Funktion eingabedaten in eingabedaten_speichern.py
-
-        # erhaltene_daten = eingabedaten_speichern.funktion(erfahrung, ziel, frequenz, zeitplan)
-
-        # Weiterleitug auf Übungen, primary key mitnehmen?
-        return redirect(url_for('excercises_auflisten'))
+        speichern(entry)  # Daten in JSON File speichern, Funktion eingabedaten in eingabedaten_speichern.py
+        auflisten = excercises_auflisten(vorname, nachname, erfahrung, ziel, frequenz, zeitplan)
+        return auflisten
+        # return redirect(url_for('excercises_auflisten'))
         # Wenn nicht ausgefüllt, Startseite Laden
 
     return render_template("eingabedaten.html")
 
 
 @app.route("/exercises")
-def excercises_auflisten():
-    uebungen = excercises_laden()
-    # daten = data_laden()
+def excercises_auflisten(vorname, nachname, erfahrung, ziel, frequenz, zeitplan):
+    exercises = json_laden("data/exercises.json")
+    daten = json_laden("data/data.json")
 
-    for id, data in uebungen["pull"].items():
-        if data["schwierigkeitgrad"] == "intermediate":
-            print(data["name"])
+    exercises_list = []
+    if erfahrung == "beginner" and frequenz == "wenig" and zeitplan == "vierwochen" or zeitplan == "zwoelfwochen":
+        for id, data in exercises["pull"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK":
+                print(data["name"])
+                exercises_list.append(data["name"])
 
-    # return uebungen
-    return render_template("uebungengeneriert.html", uebungen=uebungen, exercices="data/exercises.json")
+        for id, data in exercises["push"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK":
+                print(data["name"])
+                exercises_list.append(data["name"])
 
-    # for id, data in daten["Pascal_Ammeter"].items():
-    #     if data[] == "viel":
-    #         print(data[""])
-    #
-    # return daten
+        for id, data in exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+    elif erfahrung == "beginner" and ziel == "fettabbau" and frequenz == "wenig" and zeitplan == "sechsmonate" or zeitplan == "einjahr" or zeitplan == "unbestimmt":
+        for id, data in exercises["pull"].items() and exercises["push"].items() and exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK" or data["muskel"] == "Bauch" or data["muskel"] == "Cardio":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+    elif erfahrung == "beginner" and frequenz == "mittel" and zeitplan == "vierwochen" or zeitplan == "zwoelfwochen":
+        for id, data in exercises["pull"].items() and exercises["push"].items() and exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+    elif erfahrung == "beginner" and ziel == "fettabbau" and frequenz == "mittel" and zeitplan == "sechsmonate" or zeitplan == "einjahr" or zeitplan == "unbestimmt":
+        for id, data in exercises["pull"].items() and exercises["push"].items() and exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK" or data["muskel"] == "Bauch" or data["muskel"] == "Cardio":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+    elif erfahrung == "beginner" and frequenz == "viel" and zeitplan == "vierwochen" or zeitplan == "zwoelfwochen":
+        for id, data in exercises["pull"].items() and exercises["push"].items() and exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK" or data["training"] == "D":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+    elif erfahrung == "beginner" and frequenz == "viel" and zeitplan == "sechsmonate" or zeitplan == "einjahr" or zeitplan == "unbestimmt":
+        for id, data in exercises["pull"].items() and exercises["push"].items() and exercises["legs"].items():
+            if data["schwierigkeitgrad"] == "beginner" or data["split-c"] == "GK" or data["training"] == "D":
+                print(data["name"])
+                exercises_list.append(data["name"])
+
+
+    return render_template("uebungengeneriert.html", vorname=vorname, nachname=nachname, exercises_list=exercises_list)
 
 
 @app.route("/uebungen")
@@ -70,7 +104,7 @@ def uebungen():
     # Die url/route ist '/uebungen'.
     # Template: Das HTML 'uebungengeneriert.html' wird gerendert.
 
-    return render_template("uebungengeneriert.html") #html und daten noch undefiniert
+    return render_template("uebungengeneriert.html")  # html und daten noch undefiniert
 
 
 if __name__ == "__main__":
