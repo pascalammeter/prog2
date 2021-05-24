@@ -1,11 +1,11 @@
 {% include "header.html" %}
 {% include "navbar.html" %}
 <div>
-    <form method="POST">
+    <form method="POST" id="Eingabeformular">
         <div class="container py-4">
-              <div class="container-fluid py-4">
+            <div class="container-fluid py-4">
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
-                  <h2>Trainingsplan Erstellen</h2>
+                    <h2>Trainingsplan Erstellen</h2>
                     <p>Anhand deiner Eingaben wird der Trainingsplan erstellt.</p>
                     <div class="mb-3">
                         <label for="formGroupInput" class="form-label">Vorname</label>
@@ -13,11 +13,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupInput2" class="form-label">Nachname</label>
-                        <input type="text" class="form-control" name="nachname" id="formGroupInput2" placeholder="Mustermann">
+                        <input type="text" class="form-control" name="nachname" id="formGroupInput2"
+                               placeholder="Mustermann">
                     </div>
                     <div class="mb-3">
                         <label for="formGroupInput3" class="form-label">Geschlecht</label>
-                        <select class="form-select" name="geschlecht" id="formGroupInput3" aria-label="Default select example">
+                        <select class="form-select" name="geschlecht" id="formGroupInput3"
+                                aria-label="Default select example">
                             <option selected>Auswahl</option>
                             <option value="weiblich">Weiblich</option>
                             <option value="maennlich">Männlich</option>
@@ -33,16 +35,22 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupInput6" class="form-label">Wie erfahren bist du im Kraftsport?</label>
-                        <select class="form-select" name="erfahrung" id="formGroupInput6" aria-label="Default select example">
+                        <select class="form-select" name="erfahrung" id="formGroupInput6"
+                                aria-label="Default select example">
                             <option selected>Auswahl</option>
-                            <option value="beginner">Beginner: Du hast keine grosse Erfahrung, bzw. hast erst gerade mit Kraftsport gestartet.</option>
-                            <option value="intermediate">Intermediate: Du hast bereits die gängisten Kraftübungen praktiziert.</option>
+                            <option value="beginner">Beginner: Du hast keine grosse Erfahrung, bzw. hast erst gerade mit
+                                Kraftsport gestartet.
+                            </option>
+                            <option value="intermediate">Intermediate: Du hast bereits die gängisten Kraftübungen
+                                praktiziert.
+                            </option>
                             <option value="advanced">Advanced: Du betreibst seit mehreren Jahren Kraftsport.</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="formGroupInput7" class="form-label">Was ist dein Ziel?</label>
-                        <select class="form-select" name="ziel" id="formGroupInput7" aria-label="Default select example">
+                        <select class="form-select" name="ziel" id="formGroupInput7"
+                                aria-label="Default select example">
                             <option selected>Auswahl</option>
                             <option value="muskelaufbau">Muskelaufbau: Gewicht darf steigen.</option>
                             <option value="fettabbau">Fettabbau: Gewicht darf sinken.</option>
@@ -50,8 +58,10 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupInput8" class="form-label">Wie oft in der Woche willst du trainieren?</label>
-                        <select class="form-select" name="frequenz" id="formGroupInput8" aria-label="Default select example">
+                        <label for="formGroupInput8" class="form-label">Wie oft in der Woche willst du
+                            trainieren?</label>
+                        <select class="form-select" name="frequenz" id="formGroupInput8"
+                                aria-label="Default select example">
                             <option selected>Auswahl</option>
                             <option value="wenig">1 bis 2 Mal.</option>
                             <option value="mittel">3 bis 4 Mal.</option>
@@ -59,8 +69,10 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupInput9" class="form-label">Wie lange möchtest du deinen Trainingsplan durchziehen?</label>
-                        <select class="form-select" name="zeitplan" id="formGroupInput9" aria-label="Default select example">
+                        <label for="formGroupInput9" class="form-label">Wie lange möchtest du deinen Trainingsplan
+                            durchziehen?</label>
+                        <select class="form-select" name="zeitplan" id="formGroupInput9"
+                                aria-label="Default select example">
                             <option selected>Auswahl</option>
                             <option value="vierwochen">4 Wochen</option>
                             <option value="zwoelfwochen">12 Wochen</option>
@@ -71,9 +83,9 @@
                     </div>
                     <input type="submit" value="Absenden" class="btn btn-outline-secondary btn-lg px-4">
                     <!-- <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button></a> -->
-              </div>
+                </div>
             </div>
         </div>
-</form>
+    </form>
 </div>
 {% include "footer.html" %}

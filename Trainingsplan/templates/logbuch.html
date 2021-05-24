@@ -1,0 +1,107 @@
+{% include "header.html" %}
+{% include "navbar.html" %}
+<!-- A form is not allowed to be a child element of a table, tbody or tr: https://stackoverflow.com/questions/5967564/form-inside-a-table -->
+<div>
+    <div class="container py-4">
+        <div class="container-fluid py-4">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Logbuch</h2>
+                {% if people_with_exercises.items() %}
+                <p>Hallo {{ people_with_exercises["name"] }}! Trage deine Fortschritte im Logbuch ein.</p>
+                <form method="POST" id="Logbuchformular"></form>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-sm table-light border-dark">
+                        <thead>
+                        <tr>
+                            <th scope="col">Training</th>
+                            <th scope="col">Übung</th>
+                            <th scope="col">Muskel</th>
+                            <th scope="col">Split</th>
+                            <th scope="col">1. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                            <th scope="col">2. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                            <th scope="col">3. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for key, value in people_with_exercises.items() %}
+                        <tr>
+                            <td>{{ value['training'] }}</td>
+                            <td>{{ value['name'] }}</td>
+                            <td>{{ value['muskel'] }}</td>
+                            <td>{{ value['split-a'] }}</td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="satz_1" id="formGroupInput"
+                                           placeholder="12x" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
+                                           placeholder="100kg" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
+                                           placeholder="12x" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
+                                           placeholder="100kg" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
+                                           placeholder="12x" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
+                                           placeholder="100kg" form="Logbuchformular"/>
+                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                            form="Logbuchformular">ok
+                                    </button>
+                                </div>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="{{ url_for('logbucheintrag') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag</button></a>
+                {% else %} <!-- Falls kein Logbuch erscheint. -->
+                <p>Hier sollte das Logbuch geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
+                <a href="{{ url_for('trainingsplan') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button></a>
+                {% endif %}
+            </div>
+        </div>
+    </div><!-- container -->
+</div>
+
+{% include "footer.html" %}

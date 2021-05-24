@@ -140,7 +140,9 @@
       "muskel": "Schulter",
       "schwierigkeitgrad": "beginner",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "16": {
       "name": "Lat ziehen eng",
@@ -148,7 +150,8 @@
       "schwierigkeitgrad": "beginner",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "17": {
       "name": "Low Rows Maschine",
@@ -164,21 +167,27 @@
       "muskel": "Rücken",
       "schwierigkeitgrad": "advanced",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "19": {
       "name": "T-Bar Rudern",
       "muskel": "Rücken",
       "schwierigkeitgrad": "advanced",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "20": {
       "name": "Reverse Cableflys",
       "muskel": "Schulter",
       "schwierigkeitgrad": "intermediate",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "21": {
       "name": "Kabelzug Curls",
@@ -186,7 +195,8 @@
       "schwierigkeitgrad": "beginner",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "22": {
       "name": "LH Curls",
@@ -194,7 +204,8 @@
       "schwierigkeitgrad": "beginner",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "23": {
       "name": "Konzentrationscurls",
@@ -222,7 +233,8 @@
       "schwierigkeitgrad": "advanced",
       "training": "A",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "26": {
       "name": "Butterfly Maschine",
@@ -265,7 +277,9 @@
       "muskel": "Trizeps",
       "schwierigkeitgrad": "beginner",
       "training": "A",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "31": {
       "name": "Cable Pushdowns",
@@ -281,28 +295,36 @@
       "muskel": "Brust",
       "schwierigkeitgrad": "intermediate",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "33": {
       "name": "Brustpresse isolateral flach",
       "muskel": "Brust",
       "schwierigkeitgrad": "beginner",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "34": {
       "name": "Negativbankdrücken",
       "muskel": "Brust",
       "schwierigkeitgrad": "advanced",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "35": {
       "name": "KH Schrägbank Flys",
       "muskel": "Brust",
       "schwierigkeitgrad": "advanced",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "36": {
       "name": "Kabel Seitheben",
@@ -310,21 +332,26 @@
       "schwierigkeitgrad": "beginner",
       "training": "B",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "37": {
       "name": "Aufrechtes Rudern",
       "muskel": "Schulter",
       "schwierigkeitgrad": "intermediate",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "38": {
       "name": "Sitzend SZ Überkopfdrücken",
       "muskel": "Trizeps",
       "schwierigkeitgrad": "intermediate",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "39": {
       "name": "Cable Pushdowns unilateral",
@@ -349,7 +376,9 @@
       "muskel": "Brust",
       "schwierigkeitgrad": "advanced",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "42": {
       "name": "Dips Brustfokus",
@@ -357,7 +386,8 @@
       "schwierigkeitgrad": "intermediate",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "43": {
       "name": "Cablecross vorgebeugt",
@@ -365,7 +395,8 @@
       "schwierigkeitgrad": "intermediate",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "44": {
       "name": "KH Schulterdrücken",
@@ -373,7 +404,8 @@
       "schwierigkeitgrad": "advanced",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "45": {
       "name": "Seitheben Maschine",
@@ -398,7 +430,9 @@
       "muskel": "Trizeps",
       "schwierigkeitgrad": "advanced",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     }
   },
   "legs": {
@@ -408,7 +442,8 @@
       "schwierigkeitgrad": "advanced",
       "training": "A",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "49": {
       "name": "Horizontale Beinpresse",
@@ -442,21 +477,27 @@
       "muskel": "Hamstrings",
       "schwierigkeitgrad": "beginner",
       "training": "A",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "53": {
       "name": "Glute Ham Raises",
       "muskel": "Hamstrings",
       "schwierigkeitgrad": "intermediate",
       "training": "A",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "54": {
       "name": "Hip Thrusts",
       "muskel": "Hamstrings",
       "schwierigkeitgrad": "beginner",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "55": {
       "name": "Kickbacks",
@@ -499,21 +540,27 @@
       "muskel": "Waden",
       "schwierigkeitgrad": "beginner",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "60": {
       "name": "Romanian Deadlifts",
       "muskel": "Hamstrings",
       "schwierigkeitgrad": "advanced",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "61": {
       "name": "Hackenschmidt Maschine",
       "muskel": "Quadrizeps",
       "schwierigkeitgrad": "intermediate",
       "training": "B",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
     },
     "62": {
       "name": "Beinpresse 75°",
@@ -521,7 +568,8 @@
       "schwierigkeitgrad": "intermediate",
       "training": "C",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "63": {
       "name": "Beincurl sitzend",
@@ -529,7 +577,8 @@
       "schwierigkeitgrad": "beginner",
       "training": "B",
       "split-a": "3er-Split",
-      "split-b": "OK/UK"
+      "split-b": "OK/UK",
+      "split-c": []
     },
     "64": {
       "name": "Adduktoren",
@@ -563,7 +612,36 @@
       "muskel": "Quadrizeps",
       "schwierigkeitgrad": "intermediate",
       "training": "C",
-      "split-a": "3er-Split"
+      "split-a": "3er-Split",
+      "split-b": [],
+      "split-c": []
+    },
+    "68": {
+      "name": "Bauchtraining individuell",
+      "muskel": "Bauch",
+      "schwierigkeitgrad": [],
+      "training": "D",
+      "split-a": [],
+      "split-b": [],
+      "split-c": []
+    },
+    "69": {
+      "name": "Cardio individuell",
+      "muskel": "Cardio",
+      "schwierigkeitgrad": [],
+      "training": "D",
+      "split-a": [],
+      "split-b": [],
+      "split-c": []
+    },
+    "70": {
+      "name": "Mobility individuell",
+      "muskel": "Mobility",
+      "schwierigkeitgrad": [],
+      "training": "D",
+      "split-a": [],
+      "split-b": [],
+      "split-c": []
     }
   }
 }

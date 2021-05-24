@@ -1,34 +1,56 @@
 {% include "header.html" %}
 {% include "navbar.html" %}
 
-<p>Hallo {{ vorname, nachname }}</p>
-<main role="main">
-    {% if exercises_list %} <!--(1) Falls Daten vorhanden sind, wird folgendes ausgegeben:-->
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="list-group">
-                    {% for data in exercises_list %}
-                    <ul>
-                        <label>
-                            <input type="checkbox" name="{{ value }}">
-                            {{ data }}
-                        </label>
-                    </ul>
-                    {% endfor %}
+<div>
+    <div class="container py-4">
+        <div class="container-fluid py-4">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Trainingsplan Ausgabe</h2>
+                {% if dict_exercises %}
+                <p>Hallo {{ vorname }} {{ nachname }}! Anhand deiner Eingaben wurde der Trainingsplan erstellt.</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-sm table-light border-dark">
+                        <thead>
+                        <tr>
+                            <th scope="col">Training</th>
+                            <th scope="col">Übung</th>
+                            <th scope="col">Muskel</th>
+                            <th scope="col">Split</th>
+                            <th scope="col">1. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                            <th scope="col">2. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                            <th scope="col">3. Satz (Anz. Wdh.)</th>
+                            <th scope="col">Gewicht</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for key, value in dict_exercises.items() %}
+                        <tr>
+                            <td>{{ value['training'] | safe }}</td>
+                            <td>{{ value['name'] | safe }}</td>
+                            <td>{{ value['muskel'] | safe }}</td>
+                            <td>{{ value['split-a'] | safe }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-    {% else %}
-        <!-- Falls es keine Übungen hat -->
-        <div class="container">
-            <div class="row">
-                <p>No exercises to list. Try <a href="{{ url_for('trainingsplan') }}">Trainingsplan</a> first.<p>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    {% endif %}
-</main>
-
+                <a href="{{ url_for('logbuch') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbuch</button></a>
+                {% else %}
+                <!-- Falls es keine Übungen hat -->
+                        <p>Hier sollten die Übungen geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
+                        <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button></a>
+                {% endif %}
+                </div>
+        </div>
+    </div><!-- container -->
+</div>
 
 {% include "footer.html" %}
