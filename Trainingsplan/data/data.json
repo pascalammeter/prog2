@@ -1,56 +1,11 @@
 {
     "Pascal_Ammeter": {
-        "geschlecht": "Auswahl",
-        "groesse": "168",
-        "alter": "34",
+        "geschlecht": "maennlich",
+        "groesse": "180",
+        "alter": "24",
         "erfahrung": "beginner",
         "ziel": "muskelaufbau",
-        "frequenz": "mittel",
+        "frequenz": "wenig",
         "zeitplan": "vierwochen"
-    },
-    "Pascal_Amm": {
-        "geschlecht": "maennlich",
-        "groesse": "176",
-        "alter": "24",
-        "erfahrung": "beginner",
-        "ziel": "muskelaufbau",
-        "frequenz": "mittel",
-        "zeitplan": "einjahr"
-    },
-    "Pascall_Amm": {
-        "geschlecht": "maennlich",
-        "groesse": "176",
-        "alter": "24",
-        "erfahrung": "beginner",
-        "ziel": "fettabbau",
-        "frequenz": "wenig",
-        "zeitplan": "unbestimmt"
-    },
-    "Pascalll_Amm": {
-        "geschlecht": "maennlich",
-        "groesse": "176",
-        "alter": "24",
-        "erfahrung": "beginner",
-        "ziel": "fettabbau",
-        "frequenz": "wenig",
-        "zeitplan": "einjahr"
-    },
-    "Pas_Ammeter": {
-        "geschlecht": "Auswahl",
-        "groesse": "",
-        "alter": "",
-        "erfahrung": "beginner",
-        "ziel": "muskelaufbau",
-        "frequenz": "wenig",
-        "zeitplan": "sechsmonate"
-    },
-    "Pascal1_Ammeter": {
-        "geschlecht": "maennlich",
-        "groesse": "",
-        "alter": "",
-        "erfahrung": "beginner",
-        "ziel": "fettabbau",
-        "frequenz": "wenig",
-        "zeitplan": "einjahr"
     }
 }

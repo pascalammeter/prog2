@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 from libs.eingabedaten_speichern import speichern_data, json_laden, speichern_logbuch
 from libs.exercises_speichern import get_exercises
 
@@ -73,16 +73,11 @@ def get_people():
     return daten_people
 
 
-def get_logbuch():
-    logbuch_laden = json_laden("data/logbuch.json")
-    return logbuch_laden
-
-
 @app.route("/logbuch")
 def logbuch():
     personen = get_people()  # Personendaten laden
 
-    people_with_exercises = []  # Muss dieses dict als .json abgespeichert werden?
+    people_with_exercises = []
     for key, person in personen.items():
         uebungen_hohlen = get_exercises(key, person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
         people_with_exercises.append(uebungen_hohlen)
@@ -96,33 +91,41 @@ def logbucheintrag():
     personen = get_people()
 
     if request.method == 'POST':
-        satz_1 = request.form['satz_1']
-        gewicht_1 = request.form['gewicht_1']
-        satz_2 = request.form['satz_2']
-        gewicht_2 = request.form['gewicht_2']
-        satz_3 = request.form['satz_3']
-        gewicht_3 = request.form['gewicht_3']
+        satz1 = request.form['satz_1']  # https://stackoverflow.com/questions/64718832/flask-badrequestkeyerror-400-bad-request-the-browser-or-proxy-sent-a-reques
+        gewicht1 = request.form['gewicht_1']
+        satz2 = request.form['satz_2']
+        gewicht2 = request.form['gewicht_2']
+        satz3 = request.form['satz_3']
+        gewicht3 = request.form['gewicht_3']
 
         for key, person in personen.items():
             if key in personen == personen[key]:
                 entry_logbuch = {
                     f"{key}": {
-                        "satz_1": satz_1,
-                        "gewicht_1": gewicht_1,
-                        "satz_2": satz_2,
-                        "gewicht_2": gewicht_2,
-                        "satz_3": satz_3,
-                        "gewicht_3": gewicht_3
+                        "satz_1": satz1,
+                        "gewicht_1": gewicht1,
+                        "satz_2": satz2,
+                        "gewicht_2": gewicht2,
+                        "satz_3": satz3,
+                        "gewicht_3": gewicht3
                     }
                 }
                 speichern_logbuch(entry_logbuch)  # Daten in JSON File speichern
                 # auflisten_logbuch = logbuch_auflisten(key, satz_1, gewicht_1, satz_2, gewicht_2, satz_3, gewicht_3)
-                dict_logbuch = get_logbuch()
 
-                return redirect(url_for("logbucheintrag"))
-                # return redirect(url_for("logbuch_auflisten"))
-                # Wenn nicht ausgefüllt, Trainingsplan Laden
-    return render_template("eingabedaten.html")
+        people_with_exercises = logbuch()
+        logbuch_daten = get_exercises_user()
+        eintrag_logbuch = []
+        for key, value in logbuch_daten.items():
+            logbuch_hohlen = logbuch_daten(f"{key}", satz1, gewicht1, satz2, gewicht2, satz3, gewicht3)
+            eintrag_logbuch.append(logbuch_hohlen)
+            print(eintrag_logbuch)
+
+        return render_template("logbucheintrag.html", people_with_exercises=people_with_exercises, eintrag_logbuch=eintrag_logbuch)
+        # return redirect(url_for("logbuch_auflisten"))
+        # Wenn nicht ausgefüllt, Trainingsplan Laden
+    else:
+        return render_template("logbuch.html")
 
 
 if __name__ == "__main__":

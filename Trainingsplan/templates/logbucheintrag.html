@@ -34,7 +34,12 @@
                             <td>{{ value[2] }}</td>
                             <td>{{ value[3] }}</td>
                             <td>{{ value[4] }}</td>
-                            <td>
+                            {% endfor %}
+                            {% endfor %}
+                            {% if eintrag_logbuch %}
+                            {% for item in eintrag_logbuch %}
+                            {% for value in item %}
+                            <td>{{ value[1] }}
                                 <div class="mb-3">
                                     <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x" type="text" form="Logbuchformular" />
                                     <!--<button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
@@ -42,7 +47,7 @@
                                     </button>-->
                                 </div>
                             </td>
-                            <td>
+                            <td>{{ value[2] }}
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
                                            placeholder="100kg" form="Logbuchformular"/>
@@ -75,6 +80,7 @@
                         </tr>
                             {% endfor %}
                             {% endfor %}
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
