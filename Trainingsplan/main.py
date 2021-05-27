@@ -46,22 +46,19 @@ def trainingsplan():
         # auflisten = exercises_auflisten(vorname, nachname, erfahrung, ziel, frequenz, zeitplan)
 
         exercises_user = get_exercises_user()
-        # Wenn key=user bereits in exercises_user.json vorhanden, gib seine logbuchübungen aus.
 
+        # Wenn key=user bereits in exercises_user.json vorhanden, gib seine logbuchübungen aus.
         for key in exercises_user.keys():
-            if key in exercises_user == f"{vorname}_{nachname}":
+            if key == f"{vorname}_{nachname}":
                 exercises_user_vorhanden = logbucheintrag()
                 return render_template("logbuch.html", people_with_exercises=exercises_user_vorhanden)
 
-            # Falls user nicht vorhanden (=neuer user)
-            else:
-                dict_data = get_people()
-                print(dict_data.keys())
-                dict_exercises = get_exercises(key, erfahrung, ziel, frequenz, zeitplan)
-                print(dict_exercises)
-                # get_exercises ist in libs/exercises_speichern.py
-                return render_template("uebungengeneriert.html", vorname=vorname, nachname=nachname,
-                                       dict_exercises=dict_exercises)
+        # Falls user nicht vorhanden (=neuer user)
+        list_exercises = get_exercises(f"{vorname}_{nachname}", erfahrung, ziel, frequenz, zeitplan)
+        print(list_exercises)
+        # get_exercises ist in libs/exercises_speichern.py
+        return render_template("uebungengeneriert.html", vorname=vorname, nachname=nachname,
+                                       list_exercises=list_exercises)
 
     return render_template("eingabedaten.html")  # Wenn nicht ausgefüllt, Startseite Laden.
 
@@ -85,10 +82,10 @@ def get_logbuch():
 def logbuch():
     personen = get_people()  # Personendaten laden
 
-    people_with_exercises = {}  # Muss dieses dict als .json abgespeichert werden?
+    people_with_exercises = []  # Muss dieses dict als .json abgespeichert werden?
     for key, person in personen.items():
-        uebungen_hohlen = get_exercises(person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
-        people_with_exercises.update({"name": key, "exercices": uebungen_hohlen})
+        uebungen_hohlen = get_exercises(key, person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
+        people_with_exercises.append(uebungen_hohlen)
         print(people_with_exercises)
 
     return render_template("logbuch.html", people_with_exercises=people_with_exercises)
@@ -126,9 +123,6 @@ def logbucheintrag():
                 # return redirect(url_for("logbuch_auflisten"))
                 # Wenn nicht ausgefüllt, Trainingsplan Laden
     return render_template("eingabedaten.html")
-
-
-
 
 
 if __name__ == "__main__":

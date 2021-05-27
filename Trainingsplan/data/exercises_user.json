@@ -1,11 +1,312 @@
 {
-    "training": {
-        "training": "C",
-        "name": "Beinpresse 45\u00c2\u00b0",
-        "muskel": "Quadrizeps",
-        "split-a": "3er-Split"
-    },
-    "name": "Beinpresse 45\u00c2\u00b0",
-    "muskel": "Quadrizeps",
-    "split-a": "3er-Split"
+    "logbuch": [
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Kabelrudern sitzend tief eng",
+            "Ruecken",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Lat ziehen breit",
+            "Ruecken",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Reverse Butterflys",
+            "Schulter",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Scott Curls",
+            "Bizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "KH Shrugs",
+            "Schulter",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "LH Rudern",
+            "Ruecken",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Kabelrudern sitzend hoch breit",
+            "Ruecken",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "ueberzuege",
+            "Ruecken",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Lat ziehen Untergriff mittel",
+            "Ruecken",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Schraegbank sitzend Curls",
+            "Bizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Reverse Curls",
+            "Bizeps",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "LH Shrugs",
+            "Schulter",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Lat ziehen eng",
+            "Ruecken",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Low Rows Maschine",
+            "Ruecken",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Kabelzug Curls",
+            "Bizeps",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "LH Curls",
+            "Bizeps",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Konzentrationscurls",
+            "Bizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Schraegbankdruecken 35 Grad MP",
+            "Brust",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Butterfly Maschine",
+            "Brust",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Brustpresse isolateral schraeg",
+            "Brust",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Schulterpress Maschine",
+            "Schulter",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "KH Seitheben",
+            "Schulter",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "ueberkopf Trizepsstrecken",
+            "Trizeps",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Cable Pushdowns",
+            "Trizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Brustpresse isolateral flach",
+            "Brust",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Kabel Seitheben",
+            "Schulter",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Cable Pushdowns unilateral",
+            "Trizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Bankdruecken",
+            "Brust",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Seitheben Maschine",
+            "Schulter",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Reverse Cable Pushdowns",
+            "Trizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Horizontale Beinpresse",
+            "Quadrizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Beinstrecker",
+            "Quadrizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Beincurl liegend",
+            "Hamstrings",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Beincurl stehend",
+            "Hamstrings",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Hip Thrusts",
+            "Hamstrings",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Kickbacks",
+            "Hamstrings",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Hyperextensions",
+            "Hamstrings",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Waden sitzend",
+            "Waden",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Waden stehend",
+            "Waden",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Wadendruecken Beinpresse",
+            "Waden",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Beincurl sitzend",
+            "Hamstrings",
+            "individuell"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "A",
+            "Adduktoren",
+            "Hamstrings",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "B",
+            "Abduktoren",
+            "Quadrizeps",
+            "GK"
+        ],
+        [
+            "Pascal1_Ammeter",
+            "C",
+            "Beinpresse 45 Grad",
+            "Quadrizeps",
+            "GK"
+        ]
+    ]
 }

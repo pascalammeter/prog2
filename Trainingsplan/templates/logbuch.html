@@ -6,8 +6,8 @@
         <div class="container-fluid py-4">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2>Logbuch</h2>
-                {% if people_with_exercises.items() %}
-                <p>Hallo {{ people_with_exercises["name"] }}! Trage deine Fortschritte im Logbuch ein.</p>
+                {% if people_with_exercises %}
+                <p>Hallo ! Trage deine Fortschritte im Logbuch ein.</p>
                 <form method="POST" id="Logbuchformular"></form>
 
                 <div class="table-responsive">
@@ -27,77 +27,68 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for key, value in people_with_exercises.items() %}
+                        {% for item in people_with_exercises %}
+                        {% for value in item %}
                         <tr>
-                            <td>{{ value['training'] }}</td>
-                            <td>{{ value['name'] }}</td>
-                            <td>{{ value['muskel'] }}</td>
-                            <td>{{ value['split-a'] }}</td>
+                            <td>{{ value[1] }}</td>
+                            <td>{{ value[2] }}</td>
+                            <td>{{ value[3] }}</td>
+                            <td>{{ value[4] }}</td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="satz_1" id="formGroupInput"
                                            placeholder="12x" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
+                                    <!--<button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
                                             form="Logbuchformular">ok
-                                    </button>
+                                    </button>-->
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
                                            placeholder="100kg" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
                                            placeholder="12x" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
                                            placeholder="100kg" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
                                            placeholder="12x" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>
                                 </div>
                             </td>
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
                                            placeholder="100kg" form="Logbuchformular"/>
-                                    <button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>
                                 </div>
                             </td>
-
                         </tr>
+                        {% endfor %}
                         {% endfor %}
                         </tbody>
                     </table>
                 </div>
-                <a href="{{ url_for('logbucheintrag') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag</button></a>
+                <input type="submit" value="Speichern" class="btn btn-outline-secondary btn-lg px-4">
+                <a href="{{ url_for('logbucheintrag') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag
+                    </button>
+                </a>
                 {% else %} <!-- Falls kein Logbuch erscheint. -->
                 <p>Hier sollte das Logbuch geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
                 <a href="{{ url_for('trainingsplan') }}">
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button></a>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button>
+                </a>
                 {% endif %}
             </div>
         </div>
