@@ -1,29 +1,42 @@
-<!--Mit dem include wird hier mein header hinzugefügt,
+<!--Mit dem include wird hier mein header und navbar hinzugefügt,
 so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
+{% include "header.html" %} <!-- Mittels Jinja2 wird das HTML "header" eingebunden -->
+{% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
 
-{% include "header.html" %} <!--Mit dem include wird hier mein header hinzugefügt,
-so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
-{% include "navbar.html" %}
-<div class="container my-5"> <!-- Quelle: https://getbootstrap.com/docs/5.0/examples/heroes/ -->
+
+<div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1">Trainingsplan-Generator</h1><br>
-        <p class="lead">In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios mehrere Monate
-            geschlossen. Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym einzurichten.
-            Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben, doch mit der Zeit nimmt
-            die Motivation ab und man verliert das Ziel aus den Augen. Mit Aussicht auf baldige Lockerungen und dem
-            voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den User abgestimmten Trainingsplan
-            Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten Fitnessroutine nachzukommen.</p><br>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Trainingsplan erstellen</button></a>
-          <a href="{{ url_for('logbuch') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button></a>
-        </div>
-      </div>
-      <div class="col-lg-4 offset-lg-1 p-0 position-relative overflow-hidden shadow-lg">
-        <div class="position-lg-absolute top-0 left-0 overflow-hidden">
-          <img src="{{url_for('static', filename='pictures/example-trainingsplan.png')}} "class="d-block rounded-lg-3" alt="Beispiel Trainingsplan" width="600">
-        </div>
-      </div>
-    </div>
-</div>
-{% include "footer.html" %}
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1">Trainingsplan-Generator</h1><br>
+            <p class="lead">In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios mehrere Monate
+                geschlossen. Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym
+                einzurichten. Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben,
+                doch mit der Zeit nimmt die Motivation ab und man verliert das Ziel aus den Augen. Mit Aussicht auf
+                baldige Lockerungen und dem voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den
+                User abgestimmten Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten
+                Fitnessroutine nachzukommen.</p><br>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <a href="{{ url_for('trainingsplan') }}">
+                    <button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Trainingsplan erstellen
+                    </button>
+                </a>
+                <a href="{{ url_for('logbuch') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button>
+                </a>
+            </div> <!-- grid -->
+        </div> <!-- col -->
+
+        <div class="col-lg-4 offset-lg-1 p-0 position-relative overflow-hidden shadow-lg">
+            <div class="position-lg-absolute top-0 left-0 overflow-hidden">
+                <img src="{{url_for('static', filename='pictures/example-trainingsplan.png')}} "
+                     class="d-block rounded-lg-3" alt="Beispiel Trainingsplan" width="600">
+            </div> <!-- position -->
+        </div> <!-- col -->
+
+    </div> <!-- row -->
+</div> <!-- container -->
+
+<!-- Quelle: https://getbootstrap.com/docs/5.0/examples/heroes/ -->
+
+{% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

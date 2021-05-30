@@ -1,22 +1,22 @@
-{% include "header.html" %}
-{% include "navbar.html" %}
+{% include "header.html" %} <!-- Mit Jinja2 wird das HTML "header" eingebunden -->
+{% include "navbar.html" %} <!-- Mit Jinja2 wir das HTML "navbar" (Navigation) eingebunden -->
 <div>
-    <form method="POST" id="Eingabeformular">
+    <form method="POST" id="Eingabeformular"> <!-- Formular mit Übergabemethode "post"-->
         <div class="container py-4">
             <div class="container-fluid py-4">
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
                     <h2>Trainingsplan Erstellen</h2>
                     <p>Anhand deiner Eingaben wird der Trainingsplan erstellt.</p>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Eingabefeld Vorname -->
                         <label for="formGroupInput" class="form-label">Vorname</label>
                         <input type="text" class="form-control" name='vorname' id="formGroupInput" placeholder="Max">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Eingabefeld Nachname -->
                         <label for="formGroupInput2" class="form-label">Nachname</label>
                         <input type="text" class="form-control" name="nachname" id="formGroupInput2"
                                placeholder="Mustermann">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Eingabefeld Geschlecht -->
                         <label for="formGroupInput3" class="form-label">Geschlecht</label>
                         <select class="form-select" name="geschlecht" id="formGroupInput3"
                                 aria-label="Default select example">
@@ -25,15 +25,15 @@
                             <option value="maennlich">Männlich</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Eingabefeld Grösse -->
                         <label for="formGroupInput4" class="form-label">Grösse</label>
                         <input type="text" class="form-control" name="groesse" id="formGroupInput4" placeholder="175">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Eingabefeld Alter -->
                         <label for="formGroupInput5" class="form-label">Alter</label>
                         <input type="text" class="form-control" name="alter" id="formGroupInput5" placeholder="24">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Angabe Erfahrung -->
                         <label for="formGroupInput6" class="form-label">Wie erfahren bist du im Kraftsport?</label>
                         <select class="form-select" name="erfahrung" id="formGroupInput6"
                                 aria-label="Default select example">
@@ -47,7 +47,7 @@
                             <option value="advanced">Advanced: Du betreibst seit mehreren Jahren Kraftsport.</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Angabe Ziel -->
                         <label for="formGroupInput7" class="form-label">Was ist dein Ziel?</label>
                         <select class="form-select" name="ziel" id="formGroupInput7"
                                 aria-label="Default select example">
@@ -57,7 +57,7 @@
                             <option value="mix">Gewicht darf bleiben.</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Angabe Frequenz -->
                         <label for="formGroupInput8" class="form-label">Wie oft in der Woche willst du
                             trainieren?</label>
                         <select class="form-select" name="frequenz" id="formGroupInput8"
@@ -68,7 +68,7 @@
                             <option value="viel">5 bis 6 Mal.</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> <!-- Angabe Zeitplan -->
                         <label for="formGroupInput9" class="form-label">Wie lange möchtest du deinen Trainingsplan
                             durchziehen?</label>
                         <select class="form-select" name="zeitplan" id="formGroupInput9"
@@ -83,9 +83,9 @@
                     </div>
                     <input type="submit" value="Absenden" class="btn btn-outline-secondary btn-lg px-4">
                     <!-- <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Logbuch öffnen</button></a> -->
-                </div>
-            </div>
-        </div>
+                </div> <!-- container -->
+            </div> <!-- container -->
+        </div> <!-- container -->
     </form>
 </div>
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

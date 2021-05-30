@@ -1,12 +1,13 @@
-{% include "header.html" %}
-{% include "navbar.html" %}
+{% include "header.html" %} <!-- Mittels Jinja2 wird das HTML "header" eingebunden -->
+{% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
+
 <!-- A form is not allowed to be a child element of a table, tbody or tr: https://stackoverflow.com/questions/5967564/form-inside-a-table -->
 <div>
     <div class="container py-4">
         <div class="container-fluid py-4">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2>Logbuch</h2>
-                {% if people_with_exercises %}
+                {% if people_with_exercises %} <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
                 <!-- Quelle: https://stackoverflow.com/questions/51351359/how-to-get-exactly-one-element-from-list-in-jinja -->
                 <p>Hallo {{ people_with_exercises[0][0][0]}}! Trage deine Fortschritte im Logbuch ein.</p>
                 <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular"></form> <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
@@ -36,7 +37,8 @@
                             <td>{{ value[4] }}</td>
                             {% endfor %}
                             {% endfor %}
-                            {% if eintrag_logbuch %}
+
+                            {% if eintrag_logbuch %} <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
                             {% for item in eintrag_logbuch %}
                             {% for value in item %}
                             <td>{{ value[1] }}
@@ -100,4 +102,4 @@
     </div><!-- container -->
 </div>
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

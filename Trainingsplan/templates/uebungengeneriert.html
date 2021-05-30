@@ -1,5 +1,5 @@
-{% include "header.html" %}
-{% include "navbar.html" %}
+{% include "header.html" %} <!-- Mittels Jinja2 wird das HTML "header" eingebunden -->
+{% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
 
 <div>
     <div class="container py-4">
@@ -7,6 +7,7 @@
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2>Trainingsplan Ausgabe</h2>
                 {% if list_exercises %}
+                <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
                 <p>Hallo {{ vorname }} {{ nachname }}! Anhand deiner Eingaben wurde der Trainingsplan erstellt.</p>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-sm table-light border-dark">
@@ -23,14 +24,14 @@
                             <th scope="col">3. Satz (Anz. Wdh.)</th>
                             <th scope="col">Gewicht</th>
                         </tr>
-                        </thead>
+                        </thead> <!-- Spaltenbezeichnungen -->
                         <tbody>
-                        {% for value in list_exercises %}
+                        {% for value in list_exercises %} <!-- Durch items aus der Liste "list_exercises" loopen -->
                         <tr>
-                            <td>{{ value[1] }}</td>
-                            <td>{{ value[2] }}</td>
-                            <td>{{ value[3] }}</td>
-                            <td>{{ value[4] }}</td>
+                            <td>{{ value[1] }}</td> <!-- Das zweite Value[Training] ausgeben -->
+                            <td>{{ value[2] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
+                            <td>{{ value[3] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
+                            <td>{{ value[4] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
                             <td></td>
                             <td></td>
                             <td></td>
@@ -41,16 +42,19 @@
                         {% endfor %}
                         </tbody>
                     </table>
-                </div>
-                <a href="{{ url_for('logbuch') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbuch</button></a>
-                {% else %}
-                <!-- Falls es keine Übungen hat -->
-                        <p>Hier sollten die Übungen geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
-                        <a href="{{ url_for('trainingsplan') }}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button></a>
+                </div> <!-- table-responsive -->
+                <a href="{{ url_for('logbuch') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbuch</button>
+                </a>
+                {% else %} <!-- Falls es keine Übungen hat -->
+                <p>Hier sollten die Übungen geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
+                <a href="{{ url_for('trainingsplan') }}">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button>
+                </a>
                 {% endif %}
-                </div>
-        </div>
-    </div><!-- container -->
+            </div> <!-- h100 -->
+        </div> <!-- container -->
+    </div> <!-- container -->
 </div>
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

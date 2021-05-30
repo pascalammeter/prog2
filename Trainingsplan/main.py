@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from libs.eingabedaten_speichern import speichern_data, json_laden, speichern_logbuch
-from libs.exercises_speichern import get_exercises
+from libs.exercises_speichern import exercises
 
 app = Flask("Trainingsplan-Generator")
 
@@ -53,8 +53,8 @@ def trainingsplan():
                 exercises_user_vorhanden = logbucheintrag()
                 return render_template("logbuch.html", people_with_exercises=exercises_user_vorhanden)
 
-        # Falls user nicht vorhanden (=neuer user)
-        list_exercises = get_exercises(f"{vorname}_{nachname}", erfahrung, ziel, frequenz, zeitplan)
+        # Falls user nicht vorhanden (=neuer user):
+        list_exercises = exercises(f"{vorname}_{nachname}", erfahrung, ziel, frequenz, zeitplan)
         print(list_exercises)
         # get_exercises ist in libs/exercises_speichern.py
         return render_template("uebungengeneriert.html", vorname=vorname, nachname=nachname,
@@ -79,7 +79,7 @@ def logbuch():
 
     people_with_exercises = []
     for key, person in personen.items():
-        uebungen_hohlen = get_exercises(key, person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
+        uebungen_hohlen = exercises(key, person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
         people_with_exercises.append(uebungen_hohlen)
         print(people_with_exercises)
 

@@ -1,5 +1,7 @@
-{% include "header.html" %}
-{% include "navbar.html" %}
+{% include "header.html" %} <!-- Mittels Jinja2 wird das HTML "header" eingebunden -->
+{% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
+
+
 <!-- A form is not allowed to be a child element of a table, tbody or tr: https://stackoverflow.com/questions/5967564/form-inside-a-table -->
 <div>
     <div class="container py-4">
@@ -7,9 +9,15 @@
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2>Logbuch</h2>
                 {% if people_with_exercises %}
+                <!-- Falls die Variable "people_with_exercises" nicht False ist, also einen Inhalt hat -->
+
                 <!-- Quelle: https://stackoverflow.com/questions/51351359/how-to-get-exactly-one-element-from-list-in-jinja -->
+                <!-- [0][0][0]: um in die Tiefe der Liste zu kommen und das erste Value einmal auszugeben. Siehe Quelle oben -->
                 <p>Hallo {{ people_with_exercises[0][0][0]}}! Trage deine Fortschritte im Logbuch ein.</p>
-                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular"></form> <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
+                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular"></form>
+                <!-- Mittels Flasks url_for auf die Funktion logbucheintrag in main.py zu verweisen mittels "post" Methode, siehe Quelle unten -->
+                <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
+
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-sm table-light border-dark">
                         <thead>
@@ -25,18 +33,20 @@
                             <th scope="col">3. Satz (Anz. Wdh.)</th>
                             <th scope="col">Gewicht</th>
                         </tr>
-                        </thead>
+                        </thead> <!-- Spaltenbezeichnungen -->
+
                         <tbody>
-                            {% for item in people_with_exercises %}
-                            {% for value in item %}
+                        {% for item in people_with_exercises %} <!-- Durch die Liste "people_with_exercises" loopen -->
+                        {% for value in item %} <!-- Durch items aus der Liste "people_with_exercises" loopen -->
                         <tr>
-                            <td>{{ value[1] }}</td>
-                            <td>{{ value[2] }}</td>
-                            <td>{{ value[3] }}</td>
-                            <td>{{ value[4] }}</td>
+                            <td>{{ value[1] }}</td> <!-- Das zweite Value[Training] ausgeben -->
+                            <td>{{ value[2] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
+                            <td>{{ value[3] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
+                            <td>{{ value[4] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
                             <td>
                                 <div class="mb-3">
-                                    <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x" type="text" form="Logbuchformular" />
+                                    <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x"
+                                           type="text" form="Logbuchformular"/>
                                     <!--<button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
                                             form="Logbuchformular">ok
                                     </button>-->
@@ -73,11 +83,12 @@
                                 </div>
                             </td>
                         </tr>
-                            {% endfor %}
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                        {% endfor %}
+                        {% endfor %}
+                        </tbody> <!-- table body tag schliessen  -->
+                    </table> <!-- table tag schliessen -->
+                </div> <!-- table-responsive -->
+
                 <input type="submit" value="Speichern" class="btn btn-outline-secondary btn-lg px-4">
                 <a href="{{ url_for('logbucheintrag') }}">
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag
@@ -89,9 +100,9 @@
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button>
                 </a>
                 {% endif %}
-            </div>
-        </div>
-    </div><!-- container -->
+            </div> <!-- h100 -->
+        </div> <!-- container -->
+    </div> <!-- container -->
 </div>
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

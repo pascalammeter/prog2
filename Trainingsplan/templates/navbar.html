@@ -1,26 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="{{ url_for('startseite') }}">PROG2</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample07">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('trainingsplan') }}">Generator</a>
-          </li>
-          {% if list_exercises %}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('logbuch') }}">Übungen</a>
-          </li>
-          {% endif%}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('logbuch') }}">Logbuch</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-</nav>
+        <a class="navbar-brand" href="{{ url_for('startseite') }}">PROG2</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
+                aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('trainingsplan') }}">Generator</a>
+                </li>
+                {% if list_exercises %} <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('logbuch') }}">Übungen</a>
+                </li>
+                {% endif%}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url_for('logbuch') }}">Logbuch</a>
+                </li>
+            </ul>
+        </div> <!-- collapse navbar-collapse -->
+
+    </div> <!-- container -->
+</nav> <!-- nav tag schliessen -->
 
 <!-- Quelle: https://getbootstrap.com/docs/5.0/examples/navbars/ -->
