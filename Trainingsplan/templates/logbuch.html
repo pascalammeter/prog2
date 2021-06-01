@@ -13,8 +13,9 @@
 
                 <!-- Quelle: https://stackoverflow.com/questions/51351359/how-to-get-exactly-one-element-from-list-in-jinja -->
                 <!-- [0][0][0]: um in die Tiefe der Liste zu kommen und das erste Value einmal auszugeben. Siehe Quelle oben -->
-                <p>Hallo {{ people_with_exercises[0][0][0]}}! Trage deine Fortschritte im Logbuch ein.</p>
-                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular"></form>
+
+                <p>Hallo {{ people_with_exercises }}! Trage deine Fortschritte im Logbuch ein.</p>
+                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular">
                 <!-- Mittels Flasks url_for auf die Funktion logbucheintrag in main.py zu verweisen mittels "post" Methode, siehe Quelle unten -->
                 <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
 
@@ -94,6 +95,7 @@
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag
                     </button>
                 </a>
+                    </form>
                 {% else %} <!-- Falls kein Logbuch erscheint. -->
                 <p>Hier sollte das Logbuch geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
                 <a href="{{ url_for('trainingsplan') }}">

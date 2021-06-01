@@ -1,11 +1,20 @@
 {
     "Pascal_Ammeter": {
         "geschlecht": "maennlich",
-        "groesse": "180",
-        "alter": "24",
+        "groesse": "168",
+        "alter": "34",
         "erfahrung": "beginner",
         "ziel": "muskelaufbau",
         "frequenz": "wenig",
         "zeitplan": "vierwochen"
+    },
+    "Pascal123_Ammeter": {
+        "geschlecht": "maennlich",
+        "groesse": "176",
+        "alter": "",
+        "erfahrung": "advanced",
+        "ziel": "fettabbau",
+        "frequenz": "viel",
+        "zeitplan": "unbestimmt"
     }
 }
