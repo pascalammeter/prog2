@@ -8,7 +8,11 @@
                 <h2>Trainingsplan Ausgabe</h2>
                 {% if dict_exercises %}
                 <!-- Falls die Variable "dict_exercises" nicht False ist, also einen Inhalt hat -->
-                <p>Hallo {{ vorname }} {{ nachname }}! Anhand deiner Eingaben wurde der Trainingsplan erstellt.</p>
+                <p>Hallo {{ vorname }} {{ nachname }}! <br>
+                    Anhand deiner Eingaben wurde dein BMI berechnet und dein Trainingsplan erstellt. <br><br>
+                    Der ideale BMI für dein Alter beträgt: {{ idealer_bmi }} <br>
+                    Dein BMI beträgt: {{ user_bmi }} und bist somit in der Kategorie: {{ bmi_kategorie }}
+                </p>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-sm table-light border-dark">
                         <thead>
@@ -22,7 +26,6 @@
                         <tbody>
                         <!--Quelle sort: https://jinja.palletsprojects.com/en/3.0.x/templates/#sort-->
                         {% for key, value in dict_exercises.items() | sort %} <!-- Durch items aus der Liste "list_exercises" loopen -->
-
                         <tr>
                             <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
                             <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->

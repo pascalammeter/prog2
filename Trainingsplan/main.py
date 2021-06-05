@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from libs.eingabedaten_speichern import speichern_data, json_laden, speichern_logbuch
 from libs.exercises_speichern import exercises
+from libs.bmi_berechnen import get_idealer_bmi, bmi_berechnen, get_bmi
+
 
 app = Flask("Trainingsplan-Generator")
 
@@ -25,8 +27,9 @@ def trainingsplan():
         vorname = request.form['vorname']
         nachname = request.form['nachname']
         geschlecht = request.form['geschlecht']
-        groesse = request.form['groesse']
-        alter = request.form['alter']
+        groesse = int(request.form['groesse'])
+        gewicht = int(request.form['gewicht'])
+        alter = int(request.form['alter'])
         erfahrung = request.form['erfahrung']
         ziel = request.form['ziel']
         frequenz = request.form['frequenz']
@@ -35,6 +38,7 @@ def trainingsplan():
             f"{vorname}_{nachname}": {
                 "geschlecht": geschlecht,
                 "groesse": groesse,
+                "gewicht": gewicht,
                 "alter": alter,
                 "erfahrung": erfahrung,
                 "ziel": ziel,
@@ -43,22 +47,29 @@ def trainingsplan():
             }
         }
         speichern_data(entry_eingaben)  # Daten in JSON File speichern.
-        # auflisten = exercises_auflisten(vorname, nachname, erfahrung, ziel, frequenz, zeitplan)
-
+        idealer_bmi = get_idealer_bmi(alter)  # Aufgrund vom Alter wird der alterspezifische ideale BMI ausgelesen.
+        user_bmi = bmi_berechnen(gewicht, groesse)  # Berechnen des BMIs.
+        bmi_kategorie = get_bmi(geschlecht, gewicht, groesse)  # Aufgrund von den Attributen wird die BMI-Kategorie ausgelesen.
         exercises_user = get_exercises_user()
 
         # Wenn user bereits in exercises_user.json vorhanden, gib seine logbuchübungen aus.
         for key, value in exercises_user.items():
-            for item in value:
-                if item == f"{vorname}_{nachname}":
-                    exercises_user_vorhanden = logbucheintrag()
-                    return render_template("logbuch.html", people_with_exercises=exercises_user_vorhanden)
+            if key == f"{vorname}_{nachname}":
+                exercises_user_vorhanden = logbucheintrag()
+                return render_template("logbuch.html", people_with_exercises=exercises_user_vorhanden)
 
         # Falls user nicht vorhanden (=neuer user):
         dict_exercises = exercises(f"{vorname}_{nachname}", erfahrung, ziel, frequenz, zeitplan)
 
-        # get_exercises ist in libs/exercises_speichern.py
-        return render_template("uebungengeneriert.html", vorname=vorname, nachname=nachname, dict_exercises=dict_exercises)
+        # exercises ist in libs/exercises_speichern.py
+        return render_template("uebungengeneriert.html",
+                               vorname=vorname,
+                               nachname=nachname,
+                               idealer_bmi=idealer_bmi,
+                               user_bmi=user_bmi,
+                               bmi_kategorie=bmi_kategorie,
+                               dict_exercises=dict_exercises
+                               )
 
     return render_template("eingabedaten.html")  # Wenn nicht ausgefüllt, Startseite Laden.
 
