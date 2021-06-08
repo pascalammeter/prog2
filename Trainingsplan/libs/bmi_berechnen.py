@@ -1,5 +1,10 @@
-# Quelle: https://www.smart-rechner.de/bmi_erw/rechner.php
+from plotly.offline import plot
+import plotly.graph_objects as go
 
+# Quelle BMI: https://www.smart-rechner.de/bmi_erw/rechner.php
+
+
+# Funktion für das Ermitteln des idealen BMIs für das jeweilige Alter des Users
 def get_idealer_bmi(alter):
     if alter <= 24:
         idealer_bmi = "19-24"
@@ -26,12 +31,14 @@ def get_idealer_bmi(alter):
         return idealer_bmi
 
 
+# Funktion wo der BMI des Users berechnet wird.
 def bmi_berechnen(gewicht, groesse):
     groesse_in_meter = groesse / 100  # User gibt Grösse in cm an, deshalb umrechnen in Meter
     bmi = gewicht // (groesse_in_meter ** 2)  # Formel um BMI zu berechnen, ohne Rest
     return bmi
 
 
+# Funktion wo aufgrund des Geschlechts und des BMIs die dazugehörige BMI-Kategorie ermittelt wird.
 def get_bmi(geschlecht, gewicht, groesse):
     bmi = bmi_berechnen(gewicht, groesse)
     if geschlecht == "maennlich":
@@ -75,3 +82,21 @@ def get_bmi(geschlecht, gewicht, groesse):
         elif bmi >= 35:
             bmi_kategorie = "Adipositas"
             return bmi_kategorie
+
+
+# Funktion wo mittels Plottly den User-BMI und den idealen Durschnitts-BMI visualisiert wird.
+def viz(geschlecht, gewicht, groesse):  # Quelle: https://plotly.com/python/bar-charts/
+    bmi = bmi_berechnen(gewicht, groesse)
+    kategorie = get_bmi(geschlecht, gewicht, groesse)
+
+    beschreibung = [kategorie, 'Durschnitts-BMI bei Normalgewicht']
+    data = [bmi, 24]
+    fig = go.Figure([go.Bar(x=beschreibung, y=data)])
+
+    div = plot(fig, output_type="div")
+    return div
+
+
+
+
+

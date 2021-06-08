@@ -10,11 +10,7 @@
                 <h2>Logbuch</h2>
                 {% if people_with_exercises %}
                 <!-- Falls die Variable "people_with_exercises" nicht False ist, also einen Inhalt hat -->
-
-                <!-- Quelle: https://stackoverflow.com/questions/51351359/how-to-get-exactly-one-element-from-list-in-jinja -->
-                <!-- [0][0][0]: um in die Tiefe der Liste zu kommen und das erste Value einmal auszugeben. Siehe Quelle oben -->
-
-                <p>Hallo {{ people_with_exercises }}! Trage deine Fortschritte im Logbuch ein.</p>
+                <p>Hallo {{ people_with_exercises[value] }}! Trage deine Fortschritte im Logbuch ein.</p>
                 <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular">
                 <!-- Mittels Flasks url_for auf die Funktion logbucheintrag in main.py zu verweisen mittels "post" Methode, siehe Quelle unten -->
                 <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
@@ -35,15 +31,13 @@
                             <th scope="col">Gewicht</th>
                         </tr>
                         </thead> <!-- Spaltenbezeichnungen -->
-
                         <tbody>
-                        {% for item in people_with_exercises %} <!-- Durch die Liste "people_with_exercises" loopen -->
-                        {% for value in item %} <!-- Durch items aus der Liste "people_with_exercises" loopen -->
+                        {% for key, value in people_with_exercises.items() | sort %} <!-- Durch das Dict "people_with_exercises" loopen -->
                         <tr>
-                            <td>{{ value[1] }}</td> <!-- Das zweite Value[Training] ausgeben -->
-                            <td>{{ value[2] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
-                            <td>{{ value[3] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
-                            <td>{{ value[4] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
+                            <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
+                            <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
+                            <td>{{ value["muskel"] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
+                            <td>{{ value["split"] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
                             <td>
                                 <div class="mb-3">
                                     <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x"
@@ -56,7 +50,7 @@
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
-                                           placeholder="100kg" form="Logbuchformular"/>
+                                           placeholder="20kg" form="Logbuchformular"/>
                                 </div>
                             </td>
                             <td>
@@ -68,7 +62,7 @@
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
-                                           placeholder="100kg" form="Logbuchformular"/>
+                                           placeholder="20kg" form="Logbuchformular"/>
                                 </div>
                             </td>
                             <td>
@@ -80,20 +74,16 @@
                             <td>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
-                                           placeholder="100kg" form="Logbuchformular"/>
+                                           placeholder="20kg" form="Logbuchformular"/>
                                 </div>
                             </td>
                         </tr>
                         {% endfor %}
-                        {% endfor %}
                         </tbody> <!-- table body tag schliessen  -->
                     </table> <!-- table tag schliessen -->
                 </div> <!-- table-responsive -->
-
-                <input type="submit" value="Speichern" class="btn btn-outline-secondary btn-lg px-4">
                 <a href="{{ url_for('logbucheintrag') }}">
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag
-                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Speichern und weiter zum Logbucheintrag</button>
                 </a>
                     </form>
                 {% else %} <!-- Falls kein Logbuch erscheint. -->

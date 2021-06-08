@@ -1,8 +1,8 @@
 <!-- Einleitung-->
-<h2 align="center">Trainingsplan inkl. Logbuch</h2>
+<h2 align="center">Trainingsplan-Generator</h2>
   <p align="center">
-Generierung eines Gym-Trainingsplans nach den Vorstellungen des User <br> 
-inkl. Berechnung des Fortschritts durch Logbuch-Einträge.
+Ausgabe von Gym-Trainingsübungen aufgrund der Angaben des Users inkl. 
+Berechnung des Body Mass Index und der Möglichkeit, seine Fortschritte im Logbuch einzugeben. 
 </p>
 
 <!-- Inhaltsverzeichnis -->
@@ -19,8 +19,8 @@ inkl. Berechnung des Fortschritts durch Logbuch-Einträge.
     <li><a href="#workflow">Workflow</a></li>
           <ul>
         <li><a href="#dateneingabe">Dateneingabe</a></li>
-        <li><a href="#datenverarbeitung">Datenverarbeitung</a></li>
-         <li><a href="#datenausgabe">Datenausgabe</a></li>
+        <li><a href="#datenverarbeitung, speicherung, datenausgabe">Datenverarbeitung, Speicherung und Datenausgabe</a></li>
+         <li><a href="#bugs">Bugs</a></li>
       </ul>
     <li><a href="#erweiterbarkeit">Erweiterbarkeit</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -29,39 +29,85 @@ inkl. Berechnung des Fortschritts durch Logbuch-Einträge.
 
 <!-- Ausgangslage -->
 ## Ausgangslage
-In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios mehrere Monate geschlossen. Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym einzurichten. Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben, doch mit der Zeit nimmt die Motivation ab und man verliert das Ziel aus den Augen. <br>Mit Aussicht auf baldige Lockerungen und dem voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den User abgestimmten Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten Fitnessroutine nachzukommen. 
+In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios mehrere Monate geschlossen. 
+Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym einzurichten. 
+Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben, doch mit der Zeit 
+nimmt die Motivation ab und man verliert das Ziel aus den Augen. <br>Mit Aussicht auf baldige Lockerungen 
+und dem voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den User abgestimmten 
+Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten Fitnessroutine nachzukommen. 
 
 <!-- Projektidee -->
 ## Projektidee
 
-Der User möchte nach dem Corona-Lockdown wieder in einem Fitnessstudio trainineren. Dafür benutzt er dieses Programm. Hierfür werdem dem User diverse Fragen gestellt, welches einen auf den User zugeschnittenen Trainingsplan generiert. Zusätzlich kann der User seinen Kalorienverbrauch ins Training miteinbringen. Der User weiss daher, wie er durch die im Training verbrauchten Kalorien wiederum in seiner Ernährung anzupassen hat. <br>Der generierte Trainingsplan enthält Eingabefelder, um je Übung die Satz- und Wiederhohlungsanzahl zu notieren. Der Fortschritt wird von Training zu Training berechnet und gibt die Steigerung bzw. Minderung in Prozent aus.
+Der User möchte nach dem Corona-Lockdown wieder in einem Fitnessstudio trainineren. 
+Dafür benutzt er dieses Programm. Hierfür werdem dem User diverse Fragen gestellt, 
+welches einen auf den User zugeschnittenen Trainingsplan (Übungen) generiert. <br>
+Zusätzlich wird der BMI vom User berechnet und mit dem altersbezogenen idealen BMI-Wert verglichen
+und visuell dargestellt. Der generierte Trainingsplan enthält Eingabefelder, 
+um je Übung die Satz- und Wiederhohlungsanzahl zu notieren.
+<br><br>
+![Flussdiagramm](./Trainingsplan/static/pictures/flussdiagramm.png)
 
 <!-- Anleitung -->
 ## Anleitung
 
-Beschreibung einer Anleitung für die Nutzung des Trainingsplans
+Damit die Webapplikation vollumfänglich genutzt werden kann, müssen folgende Module installiert sein:
+- Python 3.9
+- Flask
+- Jinja2
+- Plotly
 
-![Flussdiagramm](./Trainingsplan/static/pictures/flussdiagramm_01.png)
-
+Start: <br>
+Durch das Ausführen der Datei "main.py" startet die Webapplikation.
+Danach kann durch klicken auf den Button "Trainingsplan erstellen" begonnen werden. 
 
 <!-- Workflow-->
 ## Workflow
 ### Dateneingabe
 
 Benötigte Angaben des Users:
-- Geschlecht, Alter, Gewicht, Grösse <br>=> führt zu unterschiedlichen Trainingsplan ausführen zwischen m/w sowie Logbucheintrag Gewicht für das Wunschziel
-- Trainingserfahrung (Beginner, Intermediate, Advanced) <br>=> führt je nachdem zu einem Ganzkörper, 2er-, 3er-, 4er-, 5er- oder 6er-Split
-- Trainingsfrequenz (wieviele Trainingseinheiten möchte der User pro Woche absolvieren) <br>=> führt je nachdem zu einem Ganzkörper, 2er-, 3er-, 4er-, 5er- oder 6er-Split
+- Geschlecht, Alter, Gewicht, Grösse <br>=> führt zu unterschiedlichen Übungsausgaben zwischen m/w sowie BMI-Berechnung
+- Trainingserfahrung (Beginner, Intermediate, Advanced) <br>=> führt je nachdem zu einem Ganzkörper, Oberkörper/Unterkörper (OK/UK) oder 3er-Split
+- Trainingsfrequenz (wieviele Trainingseinheiten möchte der User pro Woche absolvieren) <br>=> führt je nachdem zu einem Ganzkörper, Oberkörper/Unterkörper (OK/UK) oder 3er-Split
 - Ziel (Muskelaufbau, Fettabbau, Mix) <br>=> führt je nachdem zu einem angepasstem Trainingsplan z.B. mit Cardio Elementen
-- Traininsplandauer <br>=> führt zu einem Abschluss (Ziel vor Augen, Motivation) z.B. 12 Wochen/1 Jahr (-> danach Reminder um neuen TP zu erstellen)
-- Aktivitätslevel (für die Berechnung des Kalorienverbrauchs bzw. Grundumsatz) <br>=> führt zu einer angepassten Tageskalorien-Empfehlung (Abhängigkeit zu Trainingsplan & Ziel)
+- Traininsplandauer <br>=> führt zu einem Abschluss (Ziel vor Augen, Motivation) z.B. 12 Wochen/1 Jahr
 
-### Datenverarbeitung
-Speicherung
-### Datenausgabe
+Die benötigten Angaben werden beim ersten Formular erhoben und dient als Grundlage für den weiteren Verlauf. 
+
+### Datenverarbeitung, Speicherung und Datenausgabe
+
+Datenverarbeitung und Speicherung: <br>
+Die erhaltenen Daten über den User werden in der Datei "data.json" gespeichert. Bereits gegeben ist ein Übungspool
+bestehend aus 70 unterschiedlichen Übungen in der Datei "exercises.json". Diese Daten durchlaufen mehrere 
+Condition-Abfragen (if/else), wonach zutreffende Übungen als Dictionaries wiederum in der Datei "exercises_user.json" 
+abgespeichert werden. In einem nächsten Schritt kann der User zu den Übungen Logbucheinträge (1. Satz, Gewicht, 2. Satz, Gewicht, 3. Satz, Gewicht) hinzufügen. Die Logbucheinträge werden nun zusammen mit den Übungen in der Datei
+"exercises_logbuch.json" gspeichert. 
+
+Datenausgabe: <br>
+Die auf den User zugeschnittenen Übungen werden mitsamt Berechnung des BMIs ausgelesen und in einer Tabelle mittels
+Jinja2 dargestellt (iterieren durch for-loop). Die Übungen sowie dazu gespeicherten Logbucheinträge werden zuletzt wieder
+ausgegeben, sodass man wiederum neben den alten Logbuchwerten neue Logbucheinträge hinzufügen kann. 
+
+### Bugs
+
+Die Webapplikation läuft leider nicht ganz reibungslos. Es kann sein, dass wenn gewisse Conditions zutreffen, anstatt 
+den Übungen den KeyError: 'splitb' erscheint. Alle anderen Abfragen mit splita und splitc funktionieren einwandfrei,
+obwohl die Conditions zum splitb identisch aufgebaut sind. Folgende Abfragen ergeben diesen Fehler:
+- beginner, muskelaufbau & mix, mittel, zeitplan alle
+- beginner, fettabbau, mittel, zeitplan alle
+- intermediate, muskelaufbau & mix, wenig, zeitplan langfristig
+- intermediate, fettabbau, wenig & mittel, zeitplan alle
+- advanced, muskelaufbau & mix, wenig, zeitplan kurzfristig
+- advanced, muskelaufbau & mix, wenig, zeitplan langfristig
+- advanced, fettabbau, wenig, zeitplan alle
+
+
+  
+
 
 <!-- Erweiterbarkeit-->
 ## Erweiterbarkeit
+- Übungsausgabe direkt nach Split eingeteilt.
 - Benachrichtigung des Users, welches Training heute ansteht.
 - Logbucheinträge, welche mit Fotos ergänzt werden können.
 - Logucheinträge, welche mit Gewicht und Ernährung ergänzt werden können.

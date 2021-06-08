@@ -1,6 +1,7 @@
 import json
 
 
+# Funktion für das Speichern der Eingangseinträge ins JSON data.json
 def speichern_data(entry_eingaben):
     try:
         with open("data/data.json") as open_file:
@@ -14,7 +15,7 @@ def speichern_data(entry_eingaben):
         json.dump(datei_inhalt, open_file, indent=4)
 
 
-# Funktion für das JSON Laden für data.json, exercises.json, exercises_user.json
+# Funktion für das Laden für JSON data.json, exercises.json, exercises_user.json
 def json_laden(dateiname):
 
     try:
@@ -28,20 +29,8 @@ def json_laden(dateiname):
     return datei_inhalt
 
 
-def speichern_logbuch(entry_logbuch):
-    try:
-        with open("data/exercises_user.json") as open_file:
-            datei_inhalt = json.load(open_file)
-    except FileNotFoundError:
-        datei_inhalt = {}
-
-    datei_inhalt.update(entry_logbuch)
-
-    with open("data/exercises_user.json", "w", encoding="utf-8") as open_file:
-        json.dump(datei_inhalt, open_file, indent=4)
-
-
-def speichern_dict_exercises(file_name, dict_exercises):  # mit print() schauen auf welcher Stufe es funktioniert
+# Funktion für das Speichern von Userspezifischen Übungen im JSON exercises_user.json
+def speichern_dict_exercises(file_name, dict_exercises):
 
     try:
         with open(file_name) as open_file:
@@ -50,9 +39,25 @@ def speichern_dict_exercises(file_name, dict_exercises):  # mit print() schauen 
     except FileNotFoundError:
         datei_inhalt = {}
 
-    # datei_inhalt[str(komplexer_key)] = dict_exercises
     datei_inhalt.update(dict_exercises)
 
-    with open("data/exercises_user.json", "w", encoding="utf-8") as open_file:
+    with open(file_name, "w", encoding="utf-8") as open_file:
         json.dump(datei_inhalt, open_file, indent=4)
+
+
+# Funktion für das Speichern von Logbucheinträgen zu den Userspezifischen Übungen im JSON exercises_logbuch.json
+def speichern_logbuch(entry_logbuch):
+    try:
+        with open("data/exercises_logbuch.json") as open_file:
+            datei_inhalt = json.load(open_file)
+    except FileNotFoundError:
+        datei_inhalt = {}
+
+    datei_inhalt.update(entry_logbuch)
+
+    with open("data/exercises_logbuch.json", "w", encoding="utf-8") as open_file:
+        json.dump(datei_inhalt, open_file, indent=4)
+
+
+
 

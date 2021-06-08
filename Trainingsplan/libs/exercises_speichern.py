@@ -1,6 +1,8 @@
 from libs.eingabedaten_speichern import json_laden, speichern_dict_exercises
 
 
+# Funktion, welche alle Übungen aus exercises.json wo if/else = true ins Dict "dict_exercises" updated.
+# Anschliessend wird das Dict "dict_exercises" im JSON exercises.json gespeichert.
 def exercises(value, erfahrung, ziel, frequenz, zeitplan):
     get_exercises = json_laden("data/exercises.json")
     # komplexer_key = f"{erfahrung}_{ziel}_{frequenz}_{zeitplan}"
@@ -278,6 +280,7 @@ def exercises(value, erfahrung, ziel, frequenz, zeitplan):
                             # print(dict_exercises)
 
     # intermediate, fettabbau, wenig & mittel, zeitplan alle
+    # KeyError: 'splitb'
     if erfahrung == "intermediate":
         # print(erfahrung)
         if ziel == "fettabbau":
