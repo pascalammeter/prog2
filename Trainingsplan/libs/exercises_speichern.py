@@ -1,5 +1,17 @@
 from libs.eingabedaten_speichern import json_laden, speichern_dict_exercises
 
+# KeyError: 'splitb':
+# Die Webapplikation läuft leider nicht ganz reibungslos. Es kann sein, dass wenn gewisse Conditions zutreffen, anstatt
+# den Übungen den KeyError: 'splitb' erscheint. Alle anderen Abfragen mit splita und splitc funktionieren einwandfrei,
+# obwohl die Conditions zum splitb identisch aufgebaut sind. Folgende Abfragen ergeben diesen Fehler:
+# - beginner, muskelaufbau & mix, mittel, zeitplan alle
+# - beginner, fettabbau, mittel, zeitplan alle
+# - intermediate, muskelaufbau & mix, wenig, zeitplan langfristig
+# - intermediate, fettabbau, wenig & mittel, zeitplan alle
+# - advanced, muskelaufbau & mix, wenig, zeitplan kurzfristig
+# - advanced, muskelaufbau & mix, wenig, zeitplan langfristig
+# - advanced, fettabbau, wenig, zeitplan alle
+
 
 # Funktion, welche alle Übungen aus exercises.json wo if/else = true ins Dict "dict_exercises" updated.
 # Anschliessend wird das Dict "dict_exercises" im JSON exercises.json gespeichert.

@@ -3,89 +3,90 @@
 
 
 <!-- A form is not allowed to be a child element of a table, tbody or tr: https://stackoverflow.com/questions/5967564/form-inside-a-table -->
-<div>
+<div> <!-- Quelle Table: https://getbootstrap.com/docs/4.0/content/tables/ -->
     <div class="container py-4">
         <div class="container-fluid py-4">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
                 <h2>Logbuch</h2>
                 {% if people_with_exercises %}
                 <!-- Falls die Variable "people_with_exercises" nicht False ist, also einen Inhalt hat -->
-                <p>Hallo {{ people_with_exercises[value] }}! Trage deine Fortschritte im Logbuch ein.</p>
+                <p>Trage deine Fortschritte im Logbuch ein.</p>
                 <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular">
-                <!-- Mittels Flasks url_for auf die Funktion logbucheintrag in main.py zu verweisen mittels "post" Methode, siehe Quelle unten -->
-                <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
+                    <!-- Mittels Flasks url_for auf die Funktion logbucheintrag in main.py zu verweisen mittels "post" Methode, siehe Quelle unten -->
+                    <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
 
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover table-sm table-light border-dark">
-                        <thead>
-                        <tr>
-                            <th scope="col">Training</th>
-                            <th scope="col">Übung</th>
-                            <th scope="col">Muskel</th>
-                            <th scope="col">Split</th>
-                            <th scope="col">1. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                            <th scope="col">2. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                            <th scope="col">3. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                        </tr>
-                        </thead> <!-- Spaltenbezeichnungen -->
-                        <tbody>
-                        {% for key, value in people_with_exercises.items() | sort %} <!-- Durch das Dict "people_with_exercises" loopen -->
-                        <tr>
-                            <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
-                            <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
-                            <td>{{ value["muskel"] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
-                            <td>{{ value["split"] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
-                            <td>
-                                <div class="mb-3">
-                                    <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x"
-                                           type="text" form="Logbuchformular"/>
-                                    <!--<button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>-->
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
-                                           placeholder="20kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
-                                           placeholder="12x" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
-                                           placeholder="20kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
-                                           placeholder="12x" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
-                                           placeholder="20kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody> <!-- table body tag schliessen  -->
-                    </table> <!-- table tag schliessen -->
-                </div> <!-- table-responsive -->
-                <a href="{{ url_for('logbucheintrag') }}">
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Speichern und weiter zum Logbucheintrag</button>
-                </a>
-                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm table-light border-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">Training</th>
+                                <th scope="col">Übung</th>
+                                <th scope="col">Muskel</th>
+                                <th scope="col">Split</th>
+                                <th scope="col">1. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                                <th scope="col">2. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                                <th scope="col">3. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                            </tr>
+                            </thead> <!-- Spaltenbezeichnungen -->
+                            <tbody>
+                            <!-- Durch das Dict "people_with_exercises" loopen -->
+                            {% for key, value in people_with_exercises.items() | sort %}
+                            <!-- Quelle sort: https://jinja.palletsprojects.com/en/3.0.x/templates/-->
+                            <tr>
+                                <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
+                                <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
+                                <td>{{ value["muskel"] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
+                                <td>{{ value["split"] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
+                                <td>
+                                    <div class="mb-3">
+                                        <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x"
+                                               type="text" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
+                                               placeholder="20kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
+                                               placeholder="12x" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
+                                               placeholder="20kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
+                                               placeholder="12x" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
+                                               placeholder="20kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody> <!-- table body tag schliessen  -->
+                        </table> <!-- table tag schliessen -->
+                    </div> <!-- table-responsive -->
+                    <a href="{{ url_for('logbucheintrag') }}">
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Speichern und weiter zum
+                            Logbucheintrag
+                        </button>
+                    </a>
+                </form>
                 {% else %} <!-- Falls kein Logbuch erscheint. -->
                 <p>Hier sollte das Logbuch geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
                 <a href="{{ url_for('trainingsplan') }}">

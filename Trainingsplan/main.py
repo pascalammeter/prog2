@@ -3,7 +3,6 @@ from libs.eingabedaten_speichern import speichern_data, json_laden, speichern_lo
 from libs.exercises_speichern import exercises
 from libs.bmi_berechnen import get_idealer_bmi, bmi_berechnen, get_bmi, viz
 
-
 app = Flask("Trainingsplan-Generator")
 
 
@@ -15,8 +14,9 @@ def startseite():
     return render_template('index.html')
 
 
-# Hier kann der Trainingsplan erstellt werden. Dieser wird anhand der Eingabedaten generiert.
-# Die url/route ist '/trainingsplan'.
+# Hier kann der Trainingsplan erstellt werden. Dieser wird anhand der Eingabedaten generiert. Anschliessend werden die
+# Attribute zur Variable "dict_exercises" zusammengenommen. Dieses wird anschliessend beim rendern weitergegeben,
+# sodass die Jinja-Logik im HTML eingebaut werden kann. Die url/route ist '/trainingsplan'.
 @app.route("/trainingsplan", methods=['GET', 'POST'])
 def trainingsplan():
     if request.method == 'POST':
@@ -45,14 +45,15 @@ def trainingsplan():
         speichern_data(entry_eingaben)  # Daten in JSON File speichern.
         idealer_bmi = get_idealer_bmi(alter)  # Aufgrund vom Alter wird der alterspezifische ideale BMI ausgelesen.
         user_bmi = bmi_berechnen(gewicht, groesse)  # Berechnen des BMIs.
-        bmi_kategorie = get_bmi(geschlecht, gewicht, groesse)  # Aufgrund von den Attributen wird die BMI-Kategorie ausgelesen.
+        bmi_kategorie = get_bmi(geschlecht, gewicht, groesse)  # BMI-Kategorie wird bestimmt.
         div = viz(geschlecht, gewicht, groesse)  # Plotly Visualisierung vom User-BMI und Idealen BMI.
 
         exercises_user = get_exercises_user()
         # Wenn user bereits in exercises_user.json vorhanden, gib seine logbuchübungen aus.
         for key, value in exercises_user.items():
             if value["user"] == f"{vorname}_{nachname}":
-                return redirect(url_for("logbuch"))  # Quelle: https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
+                return redirect(url_for("logbuch"))
+        # Quelle: https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
 
         # Falls user nicht vorhanden (=neuer user):
         # Funktion 'exercises' ist in der Datei libs/exercises_speichern.py
@@ -88,6 +89,9 @@ def get_exercises_logbuch():
     return exercises_logbuch
 
 
+# Hier werden die Personendaten & Exercises vom User geladen und zusammen im neuen Dict "people_with_exercises"
+# updated. Dieses wird anschliessend beim rendern weitergegeben, sodass die Jinja-Logik im HTML eingebaut werden kann.
+# Die url/route ist '/logbuch'.
 @app.route("/logbuch")
 def logbuch():
     personen = get_people()  # Personendaten laden
@@ -96,18 +100,36 @@ def logbuch():
     for key, value in exercises_user.items():
         for name, person in personen.items():
             if value["user"] == name:  # Prüfen, ob der Vorname_Nachname identisch ist
-                uebungen_hohlen = exercises(value["user"], person["erfahrung"], person["ziel"], person["frequenz"], person["zeitplan"])
+                uebungen_hohlen = exercises(value["user"], person["erfahrung"], person["ziel"], person["frequenz"],
+                                            person["zeitplan"])
                 people_with_exercises.update(uebungen_hohlen)
 
     return render_template("logbuch.html", people_with_exercises=people_with_exercises)
 
 
+"""
+Info zur app.route logbucheintrag:
+Nachdem der User die Übungen erhält, wird er auf das Logbuch weitergeleitet. Dort hat er die Möglichkeit,
+zu jeder Übung Einträge (Sätze, Gewicht) zu machen. Möchte man nun die Einträge "Speichern und weitere 
+Logbucheinträge hinzufügen" löst es das kommende Formular nicht mit der POST-Methode (if) aus. 
+Anstelle (else) wird das Template "logbuch" gerendert. 
+Auch wenn das Formular ausgelöst würde, speichert es die gemachten Einträge nicht ins dafür vorgesehene JSON
+"exercises_logbuch.json" ab. Mein Versuch ist es, dass die generierten Übungen sowie die neuen Einträge zu den Übungen 
+zusammen im neuen JSON "exercises_logbuch.json" gespeichert werden. Beim nächsten Mal würde es mir die zuletzt
+gespeicherten Einträge im Formular anzeigen (logbucheintrag.html). Mit jedem Mal wo ich Logbucheinträge speichere, würde
+es die vorherigen Einträge überschreiben. Ich gehe davon aus, dass ich keine Einträge zu den Übungen abspeichern kann,
+da die Übungen mit der Jinja-Logik ausgegeben werden. Eventuell können dadurch keine neuen Einträge zusammen abgespeichert
+werden. 
+"""
+
+
 @app.route("/logbucheintrag", methods=['GET', 'POST'])
 def logbucheintrag():
-    logbuch_exercices = get_exercises_user()
+    logbuch_exercices = get_exercises_user()  # Generierte Übungen vom User laden
 
     if request.method == 'POST':
-        satz1 = request.form['satz_1']  # https://stackoverflow.com/questions/64718832/flask-badrequestkeyerror-400-bad-request-the-browser-or-proxy-sent-a-reques
+        satz1 = request.form[
+            'satz_1']  # https://stackoverflow.com/questions/64718832/flask-badrequestkeyerror-400-bad-request-the-browser-or-proxy-sent-a-reques
         gewicht1 = request.form['gewicht_1']
         satz2 = request.form['satz_2']
         gewicht2 = request.form['gewicht_2']
@@ -133,6 +155,12 @@ def logbucheintrag():
             speichern_logbuch(entry_logbuch)  # Daten in JSON File speichern
 
         logbuchdaten = get_exercises_logbuch()  # Logbuchdaten laden
+
+        # Hier werden die Logbuchdaten vom User geladen und zusammen mit den Logbucheinträgen (Satz, Gewicht)
+        # im neuen Dict "people_with_logbuch" updated. Dieses wird anschliessend beim rendern weitergegeben
+        # und im Formular angezeigt werden. Kommt es zur nächsten Speicherung von neuen Logbucheinträgen, werden die
+        # bisherigen Logbucheinträge durch die neuen Logbucheinträge überschrieben, sodass nur immmer die zuletzt
+        # gemachten Einträge angezeigt werden.
         people_with_logbuch = {}
         for key, value in logbuchdaten.items():
             logbuchdaten_hohlen = key, value["user"], value["erfahrung"], value["ziel"], value["frequenz"], \

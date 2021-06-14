@@ -2,96 +2,103 @@
 {% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
 
 <!-- A form is not allowed to be a child element of a table, tbody or tr: https://stackoverflow.com/questions/5967564/form-inside-a-table -->
-<div>
+<div> <!-- Quelle Table: https://getbootstrap.com/docs/4.0/content/tables/ -->
     <div class="container py-4">
         <div class="container-fluid py-4">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
-                <h2>Logbuch</h2>
-                {% if people_with_logbuch %} <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
+                <h2>Logbucheintrag</h2>
+                {% if people_with_logbuch %}
+                <!-- Falls die Variable "list_exercises" nicht False ist, also einen Inhalt hat -->
                 <!-- Quelle: https://stackoverflow.com/questions/51351359/how-to-get-exactly-one-element-from-list-in-jinja -->
-                <p>Hallo {{ people_with_logbuch[key] }}! Trage deine Fortschritte im Logbuch ein.</p>
-                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular"></form> <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover table-sm table-light border-dark">
-                        <thead>
-                        <tr>
-                            <th scope="col">Training</th>
-                            <th scope="col">Übung</th>
-                            <th scope="col">Muskel</th>
-                            <th scope="col">Split</th>
-                            <th scope="col">1. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                            <th scope="col">2. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                            <th scope="col">3. Satz (Anz. Wdh.)</th>
-                            <th scope="col">Gewicht</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            {% for key, value in people_with_logbuch.list() | sort %} <!-- Durch das Dict "people_with_logbuch" loopen -->
-                        <tr>
-                            <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
-                            <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
-                            <td>{{ value["muskel"] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
-                            <td>{{ value["split"] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
+                <p>Trage deine neuen Fortschritte im Logbuch ein.</p>
+                <form action="{{ url_for('logbucheintrag') }}" method="POST" id="Logbuchformular">
+                    <!-- Quelle: https://stackoverflow.com/questions/11556958/sending-data-from-html-form-to-a-python-script-in-flask -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm table-light border-dark">
+                            <thead>
+                            <tr>
+                                <th scope="col">Training</th>
+                                <th scope="col">Übung</th>
+                                <th scope="col">Muskel</th>
+                                <th scope="col">Split</th>
+                                <th scope="col">1. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                                <th scope="col">2. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                                <th scope="col">3. Satz (Anz. Wdh.)</th>
+                                <th scope="col">Gewicht</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Quelle sort: https://jinja.palletsprojects.com/en/3.0.x/templates/-->
+                            {% for key, value in people_with_logbuch.list() | sort %}
+                            <!-- Durch das Dict "people_with_logbuch" loopen -->
+                            <tr>
+                                <td>{{ value["training"] }}</td> <!-- Das zweite Value[Training] ausgeben -->
+                                <td>{{ value["name"] }}</td> <!-- Das dritte Value[Übung] ausgeben -->
+                                <td>{{ value["muskel"] }}</td> <!-- Das vierte Value[Muskel] ausgeben -->
+                                <td>{{ value["split"] }}</td> <!-- Das fünfte Value[Split] ausgeben -->
 
-                            <td>{{ value["satz1"] }}
-                                <div class="mb-3">
-                                    <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x" type="text" form="Logbuchformular" />
-                                    <!--<button type="button" class="btn btn-dark btn-sm px-2 me-md-2 fw-bold"
-                                            form="Logbuchformular">ok
-                                    </button>-->
-                                </div>
-                            </td>
-                            <td>{{ value["gewicht1"] }}
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
-                                           placeholder="100kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
-                                           placeholder="12x" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
-                                           placeholder="100kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
-                                           placeholder="12x" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
-                                           placeholder="100kg" form="Logbuchformular"/>
-                                </div>
-                            </td>
-                        </tr>
+                                <!-- value["satz/gewicht"] konnte ich nicht testen. Hier wollte ich den letzten
+                                 gespeicherten Logbucheintrag (Satz & Gewicht) jeder Übung anzeigen.-->
+                                <td>
+                                    <div class="mb-3"> {{ value["satz1"] }}
+                                        <input class="form-control" id="formGroupInput" name="satz_1" placeholder="12x"
+                                               type="text" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3"> {{ value["gewicht1"] }}
+                                        <input type="text" class="form-control" name="gewicht_1" id="formGroupInput2"
+                                               placeholder="100kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3"> {{ value["satz2"] }}
+                                        <input type="text" class="form-control" name="satz_2" id="formGroupInput3"
+                                               placeholder="12x" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3"> {{ value["gewicht2"] }}
+                                        <input type="text" class="form-control" name="gewicht_2" id="formGroupInput4"
+                                               placeholder="100kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3"> {{ value["satz3"] }}
+                                        <input type="text" class="form-control" name="satz_3" id="formGroupInput5"
+                                               placeholder="12x" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="mb-3"> {{ value["gewicht3"] }}
+                                        <input type="text" class="form-control" name="gewicht_3" id="formGroupInput6"
+                                               placeholder="100kg" form="Logbuchformular"/>
+                                    </div>
+                                </td>
+                            </tr>
                             {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <input type="submit" value="Speichern" class="btn btn-outline-secondary btn-lg px-4">
-                <a href="{{ url_for('logbucheintrag') }}">
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Weiter zum Logbucheintrag
-                    </button>
-                </a>
+                            </tbody>
+                        </table>
+                    </div> <!-- table-responsive -->
+
+                    <input type="submit" value="Speichern" class="btn btn-outline-secondary btn-lg px-4">
+                    <a href="{{ url_for('logbucheintrag') }}">
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Speichern und nächsten
+                            Logbucheintrag machen </button>
+                    </a>
+                </form>
+
                 {% else %} <!-- Falls kein Logbuch erscheint. -->
                 <p>Hier sollte das Logbuch geladen werden. Falls nicht, fülle zuerst den Trainingsplan aus.</p>
                 <a href="{{ url_for('trainingsplan') }}">
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">Trainingsplan erstellen</button>
                 </a>
                 {% endif %}
-            </div>
-        </div>
-    </div><!-- container -->
+            </div> <!-- h-100 -->
+        </div> <!-- container -->
+    </div> <!-- container -->
 </div>
 
 {% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

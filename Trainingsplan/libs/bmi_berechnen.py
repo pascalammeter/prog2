@@ -1,6 +1,7 @@
 from plotly.offline import plot
 import plotly.graph_objects as go
 
+
 # Quelle BMI: https://www.smart-rechner.de/bmi_erw/rechner.php
 
 
@@ -84,7 +85,7 @@ def get_bmi(geschlecht, gewicht, groesse):
             return bmi_kategorie
 
 
-# Funktion wo mittels Plottly den User-BMI und den idealen Durschnitts-BMI visualisiert wird.
+# Funktion wo mittels Plotly den User-BMI und den idealen Durschnitts-BMI visualisiert wird.
 def viz(geschlecht, gewicht, groesse):  # Quelle: https://plotly.com/python/bar-charts/
     bmi = bmi_berechnen(gewicht, groesse)
     kategorie = get_bmi(geschlecht, gewicht, groesse)
@@ -95,8 +96,3 @@ def viz(geschlecht, gewicht, groesse):  # Quelle: https://plotly.com/python/bar-
 
     div = plot(fig, output_type="div")
     return div
-
-
-
-
-

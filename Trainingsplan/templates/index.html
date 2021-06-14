@@ -4,7 +4,7 @@ so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
 {% include "navbar.html" %} <!-- Mittels Jinja2 wird das HTML "navbar" eingebunden -->
 
 
-<div class="container my-5">
+<div class="container my-5"> <!-- Quelle: https://getbootstrap.com/docs/5.0/examples/heroes/ -->
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1">Trainingsplan-Generator</h1><br>
@@ -12,9 +12,9 @@ so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
                 geschlossen. Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym
                 einzurichten. Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben,
                 doch mit der Zeit nimmt die Motivation ab und man verliert das Ziel aus den Augen. Mit Aussicht auf
-                baldige Lockerungen und dem voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den
-                User abgestimmten Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten
-                Fitnessroutine nachzukommen.</p><br>
+                baldige Lockerungen und dem voranschreiten der Impfungen, möchte ich mit einer individuellen
+                Übungsausgabe, auf den User abgestimmten Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und
+                einer geregelten Fitnessroutine nachzukommen.</p><br>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
                 <a href="{{ url_for('trainingsplan') }}">
@@ -37,6 +37,5 @@ so muss ich immer nur einmal Änderungen vornehmen und nicht in allen htmls-->
     </div> <!-- row -->
 </div> <!-- container -->
 
-<!-- Quelle: https://getbootstrap.com/docs/5.0/examples/heroes/ -->
 
 {% include "footer.html" %} <!-- Mittels Jinja2 wird das HTML "footer" eingebunden -->

@@ -33,7 +33,7 @@ In der Schweiz waren seit dem ersten Lockdown im März 2020 die Fitnessstudios m
 Nur die wenigsten Personen haben die finanziellen Mittel und Ressourcen, um ein Home-Gym einzurichten. 
 Die meisten Fitnessinteressierten versuchen durch Bodyweight-Übungen im Flow zu bleiben, doch mit der Zeit 
 nimmt die Motivation ab und man verliert das Ziel aus den Augen. <br>Mit Aussicht auf baldige Lockerungen 
-und dem voranschreiten der Impfungen, möchte ich mit einem individuellen, auf den User abgestimmten 
+und dem voranschreiten der Impfungen, möchte ich mit einer individuellen Übungsausgabe, auf den User abgestimmten 
 Trainingsplan Anreiz schaffen, um sich neue Ziele zu setzen und einer geregelten Fitnessroutine nachzukommen. 
 
 <!-- Projektidee -->
@@ -90,6 +90,7 @@ ausgegeben, sodass man wiederum neben den alten Logbuchwerten neue Logbucheintr�
 
 ### Bugs
 
+KeyError: 'splitb': <br>
 Die Webapplikation läuft leider nicht ganz reibungslos. Es kann sein, dass wenn gewisse Conditions zutreffen, anstatt 
 den Übungen den KeyError: 'splitb' erscheint. Alle anderen Abfragen mit splita und splitc funktionieren einwandfrei,
 obwohl die Conditions zum splitb identisch aufgebaut sind. Folgende Abfragen ergeben diesen Fehler:
@@ -101,9 +102,18 @@ obwohl die Conditions zum splitb identisch aufgebaut sind. Folgende Abfragen erg
 - advanced, muskelaufbau & mix, wenig, zeitplan langfristig
 - advanced, fettabbau, wenig, zeitplan alle
 
-
-  
-
+Logbucheinträge: <br>
+Nachdem der User die Übungen erhält, wird er auf das Logbuch weitergeleitet. Dort hat er die Möglichkeit,
+zu jeder Übung Einträge (Sätze, Gewicht) zu machen. Möchte man nun die Einträge "Speichern und weitere 
+Logbucheinträge hinzufügen" löst es das kommende Formular nicht mit der POST-Methode (if) aus. Anstelle (else) wird das
+Template "logbuch" gerendert. 
+Auch wenn das Formular ausgelöst würde, speichert es die gemachten Einträge nicht ins dafür vorgesehene JSON
+"exercises_logbuch.json" ab. Mein Versuch ist es, dass die generierten Übungen sowie die neuen Einträge zu den Übungen 
+zusammen im neuen JSON "exercises_logbuch.json" gespeichert werden. Beim nächsten Mal würde es mir die zuletzt
+gespeicherten Einträge im Formular anzeigen (logbucheintrag.html). Mit jedem Mal wo ich Logbucheinträge speichere, würde
+es die vorherigen Einträge überschreiben. Ich gehe davon aus, dass ich keine Einträge zu den Übungen abspeichern kann,
+da die Übungen mit der Jinja-Logik ausgegeben werden. Eventuell können dadurch keine neuen Einträge zusammen abgespeichert
+werden.
 
 <!-- Erweiterbarkeit-->
 ## Erweiterbarkeit
